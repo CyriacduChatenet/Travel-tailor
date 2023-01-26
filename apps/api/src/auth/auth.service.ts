@@ -12,8 +12,8 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  public async validateUser(username: string, password: string) {
-    const user = await this.userService.findOneByUsername(username);
+  public async validateUser(email: string, password: string) {
+    const user = await this.userService.findOneByEmail(email);
 
     if (!user) {
       throw new HttpException('User is not found', HttpStatus.NOT_FOUND);
@@ -27,14 +27,14 @@ export class AuthService {
   }
 
   public async signin(user: any) {
-    const findUser = await this.userService.findOneByUsername(user.username);
+    const findUser = await this.userService.findOneByEmail(user.email);
 
     if (!findUser) {
       throw new HttpException(`User isn't exist`, HttpStatus.NOT_ACCEPTABLE);
     }
 
     const payload = {
-      username: findUser.username,
+      email: findUser.email,
       password: findUser.password,
       roles: findUser.roles,
     };
@@ -44,8 +44,8 @@ export class AuthService {
   }
 
   public async signup(signupUserInputDTO: SignupUserInputDTO) {
-    const user = await this.userService.findOneByUsername(
-      signupUserInputDTO.username,
+    const user = await this.userService.findOneByEmail(
+      signupUserInputDTO.email,
     );
 
     console.log(user);
@@ -59,18 +59,9 @@ export class AuthService {
 
     const password = await bcrypt.hash(signupUserInputDTO.password, 10);
 
-    this.userService.create({
+    return this.userService.create({
       ...signupUserInputDTO,
       password,
     });
-
-    const payload = {
-      username: signupUserInputDTO.username,
-      password: signupUserInputDTO.password,
-      roles: 'user',
-    };
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
   }
 }

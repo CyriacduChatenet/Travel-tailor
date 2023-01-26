@@ -22,8 +22,8 @@ export class UserService {
     return this.userRepository.findOneBy({ id });
   }
 
-  findOneByUsername(username: string): Promise<User> {
-    return this.userRepository.findOneBy({ username });
+  findOneByEmail(email: string): Promise<User> {
+    return this.userRepository.findOneBy({ email });
   }
 
   update(id: string, signupUserDto: SignupUserInputDTO): Promise<UpdateResult> {

@@ -32,8 +32,8 @@ export class UserController {
   }
 
   @Get(':username')
-  findOneByUsername(@Param('username') username: string): Promise<User> {
-    return this.userService.findOneByUsername(username);
+  findOneByUsername(@Param('email') email: string): Promise<User> {
+    return this.userService.findOneByEmail(email);
   }
 
   @Put(':id')

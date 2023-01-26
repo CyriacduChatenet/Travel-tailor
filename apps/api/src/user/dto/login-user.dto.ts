@@ -1,4 +1,4 @@
 export class LoginUserInputDTO {
-  username: string;
+  email: string;
   password: string;
 }
