@@ -1,14 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 
 import reactLogo from '@/app/assets/react.svg';
-import { ApiService } from '@/setup/services/hello.service';
 
 export const HomePage:FC = () => {
   const [count, setCount] = useState(0)
-  const apiService = new ApiService();
-  useEffect(() => {
-    apiService.sayHello();
-  }, []);
 
   return (
     <div className="App">
