@@ -36,6 +36,8 @@ export class AuthService {
             setErrorState(responseJSON);
         }
 
-        this.tokenService.create(responseJSON.access_token);
+        if(responseJSON.statusCode !== 401) {
+            this.tokenService.create(responseJSON.access_token);
+        }
     };
 };
