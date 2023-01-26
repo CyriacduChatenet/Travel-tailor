@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
-import reactLogo from './assets/react.svg';
+import reactLogo from '@/app/assets/react.svg';
+import { ApiService } from '@/setup/services/hello.service';
 
-function App() {
+export const HomePage:FC = () => {
   const [count, setCount] = useState(0)
+  const apiService = new ApiService();
+  useEffect(() => {
+    apiService.sayHello();
+  }, []);
 
   return (
     <div className="App">
@@ -30,5 +35,3 @@ function App() {
     </div>
   )
 }
-
-export default App
