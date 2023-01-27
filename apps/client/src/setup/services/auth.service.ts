@@ -1,11 +1,12 @@
 import { Dispatch, SetStateAction } from "react";
 
 import { TokenService } from "@/setup/services/token.service";
+import { errorResponse } from "@/setup/types/errorApiResponse";
 
 export class AuthService {
     tokenService = new TokenService;
 
-    public async signup(credentials: Object, setErrorState: Dispatch<SetStateAction<{}>>) {
+    public async signup(credentials: Object, setErrorState: Dispatch<SetStateAction<errorResponse>>) {
         const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/auth/signup`, {
             headers: {
                 'Accept': 'application/json',
@@ -21,7 +22,7 @@ export class AuthService {
         }
     };
 
-    public async signin(credentials: Object, setErrorState: Dispatch<SetStateAction<{}>>) {
+    public async signin(credentials: Object, setErrorState: Dispatch<SetStateAction<errorResponse>>) {
         const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/auth/signin`, {
             headers: {
                 'Accept': 'application/json',

@@ -1,10 +1,11 @@
 import { FC, useState } from "react";
 
 import { AuthService } from "@/setup/services/auth.service";
+import { errorResponse } from "@/setup/types/errorApiResponse";
 
 export const SignupForm: FC = () => {
     const [credentials, setCredentials] = useState({});
-    const [errorResponse, setErrorResponse] = useState({});
+    const [errorResponse, setErrorResponse] = useState<errorResponse>({ statusCode: 0, message:''});
 
     const authService = new AuthService();
 
