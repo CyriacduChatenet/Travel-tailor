@@ -11,7 +11,12 @@ export const Router: FC = () => {
       <Routes>
         <Route path={"/"} element={<HomePage />} />
         <Route path={"signin"} element={<SigninPage />} />
-        <Route path={"signup"} element={<SignupPage />} />
+        <Route
+          path={"signup"}
+          element={
+              <SignupPage />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
