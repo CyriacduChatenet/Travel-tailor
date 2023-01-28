@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { ConfigModule } from './config/config.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { AdvertiserModule } from './advertiser/advertiser.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     AuthModule,
     UserModule,
     ConfigModule,
+    AdvertiserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
