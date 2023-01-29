@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { ConfigModule } from './config/config.module';
 import { AdvertiserModule } from './advertiser/advertiser.module';
+import { AdvertModule } from './advert/advert.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { AdvertiserModule } from './advertiser/advertiser.module';
     UserModule,
     ConfigModule,
     AdvertiserModule,
+    AdvertModule,
   ],
   controllers: [AppController],
   providers: [AppService],

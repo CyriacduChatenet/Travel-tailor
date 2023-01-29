@@ -18,7 +18,11 @@ export class AdvertiserService {
   }
 
   findAll() {
-    return this.advertiserRepository.find();
+    return this.advertiserRepository.find({
+      relations: {
+        adverts: true,
+      },
+    });
   }
 
   findOne(id: string) {

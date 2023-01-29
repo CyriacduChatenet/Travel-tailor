@@ -1,27 +1,24 @@
-import { Advert } from 'src/advert/entities/advert.entity';
+import { Advertiser } from 'src/advertiser/entities/advertiser.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  OneToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
-export class Advertiser {
+export class Advert {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   name: string;
 
-  @Column()
-  location: string;
-
-  @OneToMany(() => Advert, (advert) => advert.advertiser)
-  adverts: Advert[];
+  @ManyToOne(() => Advertiser, (advertiser) => advertiser.adverts)
+  advertiser: Advert;
 
   @CreateDateColumn()
   createdAt: Date;
