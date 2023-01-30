@@ -49,8 +49,8 @@ export const AdvertiserDashboardPage: FC = () => {
             <tr key={index}>
               <td className="tg-0pky">{index+1}</td>
               <td className="tg-0pky">{advert.name}</td>
-              <td className="tg-0pky"><button onClick={() => handleRedirect(advert.id)}>Update</button></td>
-              <td className="tg-0pky"><button onClick={() => handleDelete(advert.id)}>Delete</button></td>
+              <td className="tg-0pky"><button onClick={() => handleRedirect(String(advert.id))}>Update</button></td>
+              <td className="tg-0pky"><button onClick={() => handleDelete(String(advert.id))}>Delete</button></td>
             </tr>
           ))}
         </tbody>
