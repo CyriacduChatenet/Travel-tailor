@@ -1,4 +1,4 @@
-export class Advert {
+export class AdvertService {
   public async findAll() {
     const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/advert`)
     const responseJSON = await response.json();
