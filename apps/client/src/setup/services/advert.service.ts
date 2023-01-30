@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { CreateAdvertiserCredentials } from "@/setup/types/advertiser.type";
-import { findAll, findOne, create, update, remove, selectAdverts } from "@/setup/redux/slices/adverts/advert.slice";
+import { CreateAdvertCredentials } from "@/setup/types/advert.type";
+import { findOne, create, update, remove, selectAdverts, refreshFromAPI } from "@/setup/redux/slices/adverts/advert.slice";
 
 export class AdvertService {
   dispatch = useDispatch();
@@ -11,7 +11,7 @@ export class AdvertService {
           const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/advert`)
           const responseJSON = await response.json();
           console.log(responseJSON);
-          this.dispatch(findAll(responseJSON));
+          this.dispatch(refreshFromAPI(responseJSON));
       } catch (err) {
           console.error(err);
       }
@@ -28,7 +28,7 @@ export class AdvertService {
       }
   }
 
-  public async create(credentials: CreateAdvertiserCredentials) {
+  public async create(credentials: CreateAdvertCredentials) {
       try {
           const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/advert`, {
               headers: {
@@ -46,7 +46,7 @@ export class AdvertService {
       }
   };
 
-  public async update(id: string, credentials: CreateAdvertiserCredentials) {
+  public async update(id: string, credentials: CreateAdvertCredentials) {
       try {
           const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/advert/${id}`, {
               headers: {
@@ -75,6 +75,7 @@ export class AdvertService {
           });
           const responseJSON = await response.json();
           this.dispatch(remove(id));
+          this.findAll();
           console.log(responseJSON);
       } catch (err) {
           console.error(err);

@@ -27,6 +27,10 @@ export const advertSlice = createSlice({
             state.push(actions.payload);
         },
 
+        refreshFromAPI: (state, actions) => {
+            state.push(...actions.payload);
+        },
+
         update: (state, actions) => {
             let advert = state.filter(advert => advert.id === actions.payload.id);
             advert = actions.payload.value;
@@ -38,7 +42,7 @@ export const advertSlice = createSlice({
     },
 });
 
-export const { findAll, findOne, create, update, remove } = advertSlice.actions;
+export const { findAll, findOne, create, update, remove, refreshFromAPI } = advertSlice.actions;
 
 export const selectAdverts = (state: RootState) => state;
 

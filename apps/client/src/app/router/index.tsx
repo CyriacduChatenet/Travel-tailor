@@ -6,7 +6,7 @@ import { SigninPage } from "@/app/pages/auth/signin";
 import { SignupPage } from "@/app/pages/auth/signup";
 import { CreateAdvertiserPage } from "@/app/pages/advertiser/createAdvertiser";
 import { AdvertiserDashboardPage } from "@/app/pages/advertiser/advertiserDashboard";
-import { CreateAdvertPage } from "@/app/pages/advert/createAdvertForm";
+import { CreateAdvertPage } from "@/app/pages/advert/createAdvert";
 
 export const Router: FC = () => {
   return (

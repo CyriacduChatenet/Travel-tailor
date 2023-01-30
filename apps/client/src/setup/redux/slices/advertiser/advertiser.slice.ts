@@ -25,7 +25,7 @@ export const advertiserSlice = createSlice({
         },
 
         create: (state, actions) => {
-            state.push(actions.payload);
+            state = [...state, actions.payload];
         },
 
         update: (state, actions) => {
@@ -41,6 +41,6 @@ export const advertiserSlice = createSlice({
 
 export const { findAll, findOne, create, update, remove } = advertiserSlice.actions;
 
-export const selectAdvertisers = (state: RootState) => state;
+export const selectAdvertisers = (state: RootState) => state.advert;
 
 export default advertiserSlice.reducer;
