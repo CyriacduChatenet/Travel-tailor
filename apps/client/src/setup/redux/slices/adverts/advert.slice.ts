@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 
 export interface advertSlice {
-    id: string;
+    id: string | undefined;
     name: string;
     createdAt: Date;
     updatedAt: Date;
