@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { CreateAdvertCredentials } from "@/setup/types/advert.type";
-import { findOne, create, update, remove, selectAdverts, refreshFromAPI } from "@/setup/redux/slices/adverts/advert.slice";
+import { create, remove, selectAdverts, refreshFromAPI } from "@/setup/redux/slices/adverts/advert.slice";
+import { createSingle, selectAdvertSingle } from "@/setup/redux/slices/adverts/advertSingle.slice";
 
 export class AdvertService {
   dispatch = useDispatch();
   adverts= useSelector(selectAdverts)
+  advertSingle = useSelector(selectAdvertSingle);
 
   public async findAll() {
       try {
@@ -22,7 +24,7 @@ export class AdvertService {
           const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/advert/${id}`)
           const responseJSON = await response.json();
           console.log(responseJSON);
-          this.dispatch(findOne(id));
+          this.dispatch(createSingle(responseJSON));
       } catch (err) {
           console.error(err);
       }
@@ -57,7 +59,6 @@ export class AdvertService {
               body: JSON.stringify(credentials)
           });
           const responseJSON = await response.json();
-          this.dispatch(update({id, responseJSON}));
           console.log(responseJSON);
       } catch (err) {
           console.error(err);

@@ -6,6 +6,7 @@ import createAdvertiserRequestSlice from "@/setup/redux/slices/advertiser/create
 import advertiserSlice from "@/setup/redux/slices/advertiser/advertiser.slice";
 import createAdvertRequestSlice from "./slices/adverts/createAdvertRequest.slice";
 import advertSlice from "@/setup/redux/slices/adverts/advert.slice";
+import advertSingleSlice from "@/setup/redux/slices/adverts/advertSingle.slice";
 
 export const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
       advertiser: advertiserSlice,
       createAdvertiserRequest: createAdvertiserRequestSlice,
       advert: advertSlice,
+      advertSingle: advertSingleSlice,
       createAdvertRequest: createAdvertRequestSlice,
     }
 })
