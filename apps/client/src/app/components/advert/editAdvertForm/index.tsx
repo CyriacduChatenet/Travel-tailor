@@ -6,7 +6,7 @@ import { AdvertService } from "@/setup/services/advert.service";
 import { selectAdvertSingle, selectName, updateSingle} from "@/setup/redux/slices/adverts/advertSingle.slice";
 
 interface IProps {
-    id: string;
+    id: string | undefined;
 }
 
 export const EditAdvertForm: FC<IProps> = ({ id }) => {
@@ -17,12 +17,12 @@ export const EditAdvertForm: FC<IProps> = ({ id }) => {
     const advertService = new AdvertService();
 
     const handleSubmit = () => {
-        advertService.update(id, advert);
+        advertService.update(String(id), advert);
         navigate('/advertiser/dashboard');
     };
 
     useEffect(() => {
-        advertService.findOne(id)
+        advertService.findOne(String(id));
     }, [])
     return (
         <form action="" onSubmit={(e) => {
