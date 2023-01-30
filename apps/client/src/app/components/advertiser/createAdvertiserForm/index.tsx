@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { changeLocation, changeName, selectLocation, selectName } from "@/setup/redux/slices/advertiser/createAdvertiserRequest.slice";
 import { AdvertiserService } from "@/setup/services/advertiser.service";
@@ -8,6 +9,7 @@ export const CreateAdvertiserForm: FC = () => {
   const dispatch = useDispatch();
   const name = useSelector(selectName);
   const location = useSelector(selectLocation);
+  const navigate = useNavigate();
 
   const advertiserService = new AdvertiserService();
 
@@ -16,6 +18,7 @@ export const CreateAdvertiserForm: FC = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     advertiserService.create(credentials);
+    navigate('/advertiser/dashboard')
   }
 
   return (

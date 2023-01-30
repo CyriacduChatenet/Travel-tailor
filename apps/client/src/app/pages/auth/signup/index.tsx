@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { SignupForm } from "@/app/components/signupFom";
+import { SignupForm } from "@/app/components/auth/signupFom";
 import { Link } from "react-router-dom";
 
 export const SignupPage: FC = () => {

@@ -3,7 +3,7 @@ import {  useIsAuthenticated } from '@travel-manager/hooks';
 import { Role } from '@travel-manager/functions';
 
 import { TokenService } from "@/setup/services/token.service";
-import { CreateAdvertiserForm } from "@/app/components/createAdvertiserForm";
+import { CreateAdvertiserForm } from "@/app/components/advertiser/createAdvertiserForm";
 
 export const CreateAdvertiserPage: FC = () => {
     const tokenService = new TokenService();
