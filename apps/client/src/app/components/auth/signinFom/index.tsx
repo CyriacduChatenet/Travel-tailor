@@ -8,6 +8,7 @@ import { errorResponse } from "@/setup/types/errorApiResponse";
 import { changeEmail, changePassword, selectEmail, selectPassword } from "@/setup/redux/slices/auth/signin.slice";
 import { TokenService } from "@/setup/services/token.service";
 import { Token } from "@/setup/types/token.type";
+import { ROUTES } from "@/setup/constants";
 
 export const SigninForm: FC = () => {
     const [errorResponse, setErrorResponse] = useState<errorResponse>({ statusCode: 0, message:''});
@@ -32,9 +33,9 @@ export const SigninForm: FC = () => {
         console.log(userRole);
 
         if(userRole === Role.Advertiser) {
-            navigate('/advertiser/dashboard');
+            navigate(ROUTES.ADVERTISER.DASHBOARD);
         } else {
-            navigate('/dashboard');
+            navigate(ROUTES.TRAVELER.DASHBOARD);
         }
     };
 

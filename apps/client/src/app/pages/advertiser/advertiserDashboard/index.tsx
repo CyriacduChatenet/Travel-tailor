@@ -7,6 +7,8 @@ import { useIsAuthenticated } from "@travel-manager/hooks";
 import { TokenService } from "@/setup/services/token.service";
 import { AdvertService } from "@/setup/services/advert.service";
 import { selectAdverts } from "@/setup/redux/slices/adverts/advert.slice";
+import { ROUTES } from "@/setup/constants";
+
 import "./style.css";
 
 export const AdvertiserDashboardPage: FC = () => {
@@ -17,7 +19,7 @@ export const AdvertiserDashboardPage: FC = () => {
   const advertService = new AdvertService();
 
   const handleRedirect = (id: string) => {
-    navigate(`/advertiser/edit-advert/${id}`)
+    navigate(ROUTES.ADVERTISER.ADVERT.UPDATE_WITHOUT_ID+id)
   };
 
   const handleDelete = (id: string) => {
@@ -28,11 +30,11 @@ export const AdvertiserDashboardPage: FC = () => {
     advertService.findAll();
   }, []);
 
-  useIsAuthenticated(tokenService.find(), "/signin", Role.Advertiser);
+  useIsAuthenticated(tokenService.find(), ROUTES.AUTH.SIGNIN, Role.Advertiser);
   return (
     <div>
       <h1>Advertiser dashboard</h1>
-      <Link to={"/advertiser/create-advert"}>Create advert</Link>
+      <Link to={ROUTES.ADVERTISER.ADVERT.CREATE}>Create advert</Link>
       <br />
       <br />
       <table className="tg">

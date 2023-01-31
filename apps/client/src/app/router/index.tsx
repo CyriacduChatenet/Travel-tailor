@@ -8,14 +8,15 @@ import { SignupPage } from "@/app/pages/auth/signup";
 import { AdminRouter } from "@/app/router/admin";
 import { AdvertiserRouter } from "@/app/router/advertiser";
 import { TravelerRouter } from "@/app/router/traveler";
+import { ROUTES } from "@/setup/constants";
 
 export const Router: FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={"/"} element={<HomePage />} />
-        <Route path={"/signin"} element={<SigninPage />} />
-        <Route path={"/signup"} element={<SignupPage />} />
+        <Route path={ROUTES.ROOT} element={<HomePage />} />
+        <Route path={ROUTES.AUTH.SIGNIN} element={<SigninPage />} />
+        <Route path={ROUTES.AUTH.SIGNUP} element={<SignupPage />} />
       </Routes>
       <AdminRouter />
       <AdvertiserRouter />

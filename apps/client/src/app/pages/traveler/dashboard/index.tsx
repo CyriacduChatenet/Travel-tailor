@@ -3,11 +3,12 @@ import { useIsAuthenticated } from "@travel-manager/hooks";
 import { FC } from "react";
 
 import { TokenService } from "@/setup/services/token.service";
+import { ROUTES } from "@/setup/constants";
 
 export const TravelerDashboardPage: FC = () => {
   const tokenService = new TokenService();
 
-  useIsAuthenticated(tokenService.find(), "/signin", Role.Traveler);
+  useIsAuthenticated(tokenService.find(), ROUTES.AUTH.SIGNIN, Role.Traveler);
   return (
     <div>
       <h1>Traveler Dashboard</h1>
