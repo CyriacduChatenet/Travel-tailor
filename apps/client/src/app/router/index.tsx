@@ -6,8 +6,9 @@ import { SigninPage } from "@/app/pages/auth/signin";
 import { SignupPage } from "@/app/pages/auth/signup";
 import { CreateAdvertiserPage } from "@/app/pages/advertiser/createAdvertiser";
 import { AdvertiserDashboardPage } from "@/app/pages/advertiser/advertiserDashboard";
-import { CreateAdvertPage } from "@/app/pages/advert/createAdvert";
-import { EditAdvertPage } from "@/app/pages/advert/editAdvert";
+import { CreateAdvertPage } from "@/app/pages/advertiser/advert/createAdvert";
+import { EditAdvertPage } from "@/app/pages/advertiser/advert/editAdvert";
+import { TravelerDashboardPage } from "@/app/pages/traveler/dashboard";
 
 export const Router: FC = () => {
   return (
@@ -16,10 +17,13 @@ export const Router: FC = () => {
         <Route path={"/"} element={<HomePage />} />
         <Route path={"/signin"} element={<SigninPage />} />
         <Route path={"/signup"} element={<SignupPage />} />
+
         <Route path={"/create-advertiser"} element={<CreateAdvertiserPage />} />
         <Route path={"/advertiser/dashboard"} element={<AdvertiserDashboardPage />} />
         <Route path={"/advertiser/create-advert"} element={<CreateAdvertPage />} />
         <Route path={"/advertiser/edit-advert/:id"} element={<EditAdvertPage />} />
+
+        <Route path={"/dashboard"} element={<TravelerDashboardPage />} />
       </Routes>
     </BrowserRouter>
   );
