@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { CreateAdvertiserPage } from "@/app/pages/advertiser/createAdvertiser";
-import { AdvertiserDashboardPage } from "@/app/pages/advertiser/advertiserDashboard";
+import { AdvertiserDashboardPage } from "@/app/pages/advertiser/dashboard";
 import { CreateAdvertPage } from "@/app/pages/advertiser/advert/createAdvert";
 import { EditAdvertPage } from "@/app/pages/advertiser/advert/editAdvert";
 import { ROUTES } from "@/setup/constants";

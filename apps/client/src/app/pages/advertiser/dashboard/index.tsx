@@ -26,6 +26,11 @@ export const AdvertiserDashboardPage: FC = () => {
     advertService.delete(id);
   };
 
+  const handleLogout = () => {
+    tokenService.delete();
+    navigate(ROUTES.AUTH.SIGNIN)
+  };
+
   useEffect(() => {
     advertService.findAll();
   }, []);
@@ -57,6 +62,7 @@ export const AdvertiserDashboardPage: FC = () => {
           ))}
         </tbody>
       </table>
+      <button onClick={() => handleLogout()}>Logout</button>
     </div>
   );
 };
