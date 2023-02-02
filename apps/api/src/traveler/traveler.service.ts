@@ -2,8 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { CreateTravelerDto } from './dto/create-traveler.dto';
-import { UpdateTravelerDto } from './dto/update-traveler.dto';
 import { Traveler } from './entities/traveler.entity';
 
 @Injectable()
@@ -13,19 +11,28 @@ export class TravelerService {
     private travelerRepository: Repository<Traveler>,
   ) {}
 
-  create(createTravelerDto: CreateTravelerDto) {
+  create(createTravelerDto: any) {
     return this.travelerRepository.save(createTravelerDto);
   }
 
   findAll() {
-    return this.travelerRepository.find();
+    return this.travelerRepository.find({
+      relations: {
+        user: true,
+      },
+    });
   }
 
   findOne(id: string) {
-    return this.travelerRepository.findOneBy({ id });
+    return this.travelerRepository.findOne({
+      where: { id },
+      relations: {
+        user: true,
+      },
+    });
   }
 
-  update(id: string, updateTravelerDto: UpdateTravelerDto) {
+  update(id: string, updateTravelerDto: any) {
     return this.travelerRepository.update(id, updateTravelerDto);
   }
 

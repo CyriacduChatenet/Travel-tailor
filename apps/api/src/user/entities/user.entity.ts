@@ -34,11 +34,15 @@ export class User {
   })
   roles: Role[];
 
-  @OneToOne(() => Advertiser)
+  @OneToOne(() => Advertiser, {
+    cascade: true,
+  })
   @JoinColumn()
   advertiser: Advertiser;
 
-  @OneToOne(() => Traveler)
+  @OneToOne(() => Traveler, {
+    cascade: true,
+  })
   @JoinColumn()
   traveler: Traveler;
 

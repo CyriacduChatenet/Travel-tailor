@@ -41,12 +41,13 @@ export class TravelerService {
             const responseJSON = await response.json();
             console.log(responseJSON);
             this.dispatch(create(responseJSON));
+            return responseJSON;
         } catch (err) {
             console.error(err);
         }
     };
 
-    public async update(id: string, credentials: CreateAdvertiserCredentials) {
+    public async update(id: string, credentials: any) {
         try {
             const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/traveler/${id}`, {
                 headers: {

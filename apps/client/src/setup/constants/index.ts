@@ -1,7 +1,7 @@
 export const ROUTES = {
   ROOT: "/",
   ADVERTISER: {
-    CREATE: '/create-advertiser',
+    CREATE: '/create-advertiser/:id',
     DASHBOARD: '/advertiser/dashboard',
     ADVERT: {
         CREATE: '/advertiser/create-advert',

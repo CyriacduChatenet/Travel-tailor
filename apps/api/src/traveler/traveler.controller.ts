@@ -9,7 +9,6 @@ import {
 } from '@nestjs/common';
 import { TravelerService } from './traveler.service';
 import { CreateTravelerDto } from './dto/create-traveler.dto';
-import { UpdateTravelerDto } from './dto/update-traveler.dto';
 
 @Controller('traveler')
 export class TravelerController {
@@ -31,10 +30,7 @@ export class TravelerController {
   }
 
   @Put(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateTravelerDto: UpdateTravelerDto,
-  ) {
+  update(@Param('id') id: string, @Body() updateTravelerDto: any) {
     return this.travelerService.update(id, updateTravelerDto);
   }
 
