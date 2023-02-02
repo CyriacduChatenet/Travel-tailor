@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { AuthService } from "@/setup/services/auth.service";
 import { errorResponse } from "@/setup/types/errorApiResponse";
-import { changeEmail, changePassword, changeUsername, selectEmail, selectPassword, selectUsername } from "@/setup/redux/slices/auth/signup.slice";
+import { changeEmail, changePassword, changeRoles, changeUsername, selectEmail, selectPassword, selectRoles, selectUsername } from "@/setup/redux/slices/auth/signup.slice";
 
 export const SignupForm: FC = () => {
     const [errorResponse, setErrorResponse] = useState<errorResponse>({ statusCode: 0, message:''})
@@ -11,8 +11,9 @@ export const SignupForm: FC = () => {
     const username = useSelector(selectUsername);
     const email = useSelector(selectEmail);
     const password = useSelector(selectPassword);
+    const roles = useSelector(selectRoles);
 
-    const credentials = {username, email, password};
+    const credentials = {username, email, password, roles};
 
     const dispatch = useDispatch();
 
@@ -43,6 +44,14 @@ export const SignupForm: FC = () => {
             <label htmlFor="">
                 <span>Password</span>
                 <input type="password" placeholder="Password" name="password" value={password} onChange={(e) => dispatch(changePassword(e.target.value))} />
+            </label>
+            <label htmlFor="">
+                <span>Roles</span>
+                <select name="roles"  onChange={(e) => dispatch(changeRoles(e.target.value))}>
+                    <option value="">select role</option>
+                    <option value="traveler">Traveler</option>
+                    <option value="advertiser">Advertiser</option>
+                </select>
             </label>
             <input type="submit" value={'Signup'} />
         </form>

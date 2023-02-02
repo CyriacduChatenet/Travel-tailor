@@ -1,26 +1,35 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
 import { CreateTravelerDto } from './dto/create-traveler.dto';
 import { UpdateTravelerDto } from './dto/update-traveler.dto';
+import { Traveler } from './entities/traveler.entity';
 
 @Injectable()
 export class TravelerService {
+  constructor(
+    @InjectRepository(Traveler)
+    private travelerRepository: Repository<Traveler>,
+  ) {}
+
   create(createTravelerDto: CreateTravelerDto) {
-    return 'This action adds a new traveler';
+    return this.travelerRepository.save(createTravelerDto);
   }
 
   findAll() {
-    return `This action returns all traveler`;
+    return this.travelerRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} traveler`;
+  findOne(id: string) {
+    return this.travelerRepository.findOneBy({ id });
   }
 
-  update(id: number, updateTravelerDto: UpdateTravelerDto) {
-    return `This action updates a #${id} traveler`;
+  update(id: string, updateTravelerDto: UpdateTravelerDto) {
+    return this.travelerRepository.update(id, updateTravelerDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} traveler`;
+  remove(id: string) {
+    return this.travelerRepository.softDelete(id);
   }
 }

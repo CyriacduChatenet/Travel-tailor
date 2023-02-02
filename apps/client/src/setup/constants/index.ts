@@ -18,3 +18,9 @@ export const ROUTES = {
     SIGNUP: "/signup",
   },
 };
+
+export const ROLES = {
+  ADVERTISER : 'advertiser',
+  TRAVELER: 'traveler',
+  ADMIN: 'admin',
+}
