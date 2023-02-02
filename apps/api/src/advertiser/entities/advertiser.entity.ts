@@ -1,13 +1,16 @@
-import { Advert } from '../../advert/entities/advert.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+
+import { Advert } from '../../advert/entities/advert.entity';
+import { User } from '../../user/entities/user.entity';
 
 @Entity()
 export class Advertiser {
@@ -19,6 +22,9 @@ export class Advertiser {
 
   @Column()
   location: string;
+
+  @OneToOne(() => User, (user) => user.advertiser)
+  user: User;
 
   @OneToMany(() => Advert, (advert) => advert.advertiser)
   adverts: Advert[];
