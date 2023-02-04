@@ -12,6 +12,7 @@ import {
 import { Role } from '../../auth/decorators/role.enum';
 import { Advertiser } from '../../advertiser/entities/advertiser.entity';
 import { Traveler } from '../../traveler/entities/traveler.entity';
+import { ResetTokenPassword } from '../../auth/mail/entity/mail.entity';
 
 @Entity()
 export class User {
@@ -45,6 +46,12 @@ export class User {
   })
   @JoinColumn()
   traveler: Traveler;
+
+  @OneToOne(() => ResetTokenPassword, {
+    cascade: true,
+  })
+  @JoinColumn()
+  resetTokenPassword: ResetTokenPassword;
 
   @CreateDateColumn()
   createdAt: Date;
