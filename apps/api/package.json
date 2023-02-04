@@ -28,7 +28,6 @@
     "@types/nodemailer": "^6.4.7",
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
-    "ejs": "^3.1.8",
     "i": "^0.3.7",
     "jwt-decode": "^3.1.2",
     "nodemailer": "^6.9.1",

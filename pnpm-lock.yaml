@@ -23,7 +23,6 @@ importers:
       '@typescript-eslint/parser': ^5.0.0
       bcrypt: ^5.1.0
       dotenv: ^16.0.3
-      ejs: ^3.1.8
       eslint: ^8.0.1
       eslint-config-prettier: ^8.3.0
       eslint-plugin-prettier: ^4.0.0
@@ -57,7 +56,6 @@ importers:
       '@types/nodemailer': 6.4.7
       bcrypt: 5.1.0
       dotenv: 16.0.3
-      ejs: 3.1.8
       i: 0.3.7
       jwt-decode: 3.1.2
       nodemailer: 6.9.1
@@ -1679,6 +1677,7 @@ packages:
   /async/3.2.4:
     resolution: {integrity: sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==}
     dev: false
+    optional: true
 
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
@@ -2446,6 +2445,7 @@ packages:
     dependencies:
       jake: 10.8.5
     dev: false
+    optional: true
 
   /electron-to-chromium/1.4.284:
     resolution: {integrity: sha512-M8WEXFuKXMYMVr45fo8mq0wUrrJHheiKZf6BArTKk9ZBYCKJEOU5H8cdWgDT+qCVZf7Na4lVUaZsA+h6uA9+PA==}
@@ -2859,6 +2859,7 @@ packages:
     dependencies:
       minimatch: 5.1.6
     dev: false
+    optional: true
 
   /fill-range/7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
@@ -3546,6 +3547,7 @@ packages:
       filelist: 1.0.4
       minimatch: 3.1.2
     dev: false
+    optional: true
 
   /jest-worker/27.5.1:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}

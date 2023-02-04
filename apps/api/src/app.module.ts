@@ -9,6 +9,7 @@ import { UserModule } from './user/user.module';
 import { AdvertiserModule } from './advertiser/advertiser.module';
 import { AdvertModule } from './advert/advert.module';
 import { TravelerModule } from './traveler/traveler.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { TravelerModule } from './traveler/traveler.module';
       synchronize: true,
     }),
     AuthModule,
+    MailModule,
     UserModule,
     AdvertiserModule,
     AdvertModule,

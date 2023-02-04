@@ -12,7 +12,7 @@ import {
 import { Role } from '../../auth/decorators/role.enum';
 import { Advertiser } from '../../advertiser/entities/advertiser.entity';
 import { Traveler } from '../../traveler/entities/traveler.entity';
-import { ResetTokenPassword } from '../../auth/mail/entity/mail.entity';
+import { ResetTokenPassword } from '../../mail/entities/mail.entity';
 
 @Entity()
 export class User {
