@@ -38,6 +38,7 @@ export class AuthService {
 
     console.log(responseUserJSON)
     this.dispatch(changeId(responseUserJSON.id));
+    this.dispatch(create(responseUserJSON));
 
     if (responseUserJSON.roles === ROLES.TRAVELER) {
       const responseTravelerJSON = await this.travelerService.create();

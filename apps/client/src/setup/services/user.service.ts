@@ -18,12 +18,13 @@ export class UserService {
         }
     }
     
-    public async findOne(id: string) {
+    public async findOne(email: string) {
         try {
-            const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/user/${id}`)
+            const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/user/${email}`)
             const responseJSON = await response.json();
             console.log(responseJSON);
-            this.dispatch(findOne(id));
+            this.dispatch(findOne(email));
+            return responseJSON;
         } catch (err) {
             console.error(err);
         }
