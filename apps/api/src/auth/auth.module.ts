@@ -8,6 +8,7 @@ import { AuthController } from './auth.controller';
 import { UserModule } from '../user/user.module';
 import { LocalStrategy } from './strategies/local.strategy';
 import { JwtStrategy } from './strategies/jwt.strategy';
+import { MailModule } from './mail/mail.module';
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ dotenv.config();
       signOptions: { expiresIn: '21d' },
     }),
     UserModule,
+    MailModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, LocalStrategy, JwtStrategy],
