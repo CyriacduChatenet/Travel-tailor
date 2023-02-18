@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { useDispatch } from "react-redux";
+import { useFetchHook } from '@travel-manager/hooks';
 
 import { TokenService } from "@/setup/services/token.service";
 import { errorResponse } from "@/setup/types/errorApiResponse";
@@ -10,6 +11,7 @@ import { create } from "@/setup/redux/slices/user/user.slice";
 import { changeId } from "../redux/slices/auth/signup.slice";
 
 export class AuthService {
+  useFetch = new useFetchHook();
   tokenService = new TokenService();
   travelerService = new TravelerService();
   userService = new UserService();
@@ -89,4 +91,8 @@ export class AuthService {
       this.tokenService.create(responseJSON.access_token);
     }
   }
+
+  async forgotPassword (credentials: { email: string }) {
+    return await this.useFetch.post(`${import.meta.env.VITE_APP_API_URL}/mail/forgot-password`, credentials);
+  };
 }
