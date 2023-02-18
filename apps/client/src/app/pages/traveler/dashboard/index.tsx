@@ -1,5 +1,3 @@
-import { Role } from "@travel-manager/functions";
-import { useIsAuthenticated } from "@travel-manager/hooks";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -14,8 +12,6 @@ export const TravelerDashboardPage: FC = () => {
     tokenService.delete();
     navigate(ROUTES.AUTH.SIGNIN)
   };
-
-  useIsAuthenticated(tokenService.find(), ROUTES.AUTH.SIGNIN, Role.Traveler);
   return (
     <div>
       <h1>Traveler Dashboard</h1>

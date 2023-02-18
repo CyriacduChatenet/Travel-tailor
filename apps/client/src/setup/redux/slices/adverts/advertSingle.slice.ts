@@ -21,7 +21,6 @@ export const advertSingleSlice = createSlice({
     name: 'advertSingle',
     initialState,
     reducers: {
-
         createSingle: (state, actions) => {
             state.id = actions.payload.id;
             state.name = actions.payload.name;
