@@ -26,12 +26,12 @@ export class ResetPasswordTokenController {
     return this.resetPasswordTokenService.findAll();
   }
 
-  @Get(':id')
+  @Get(':token')
   findOne(@Param('id') id: string) {
     return this.resetPasswordTokenService.findOne(id);
   }
 
-  @Patch(':id')
+  @Patch(':token')
   update(
     @Param('id') id: string,
     @Body() updateResetPasswordTokenDto: UpdateResetPasswordTokenDto,
@@ -42,7 +42,7 @@ export class ResetPasswordTokenController {
     );
   }
 
-  @Delete(':id')
+  @Delete(':token')
   remove(@Param('id') id: string) {
     return this.resetPasswordTokenService.remove(id);
   }

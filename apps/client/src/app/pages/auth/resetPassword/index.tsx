@@ -7,7 +7,7 @@ import { ResetPasswordForm } from "@/app/components/auth/resetPasswordFom";
 export const ResetPasswordPage: FC = () => {
     return (
         <div>
-            <h1>Forgot password page</h1>
+            <h1>Reset password page</h1>
             <ResetPasswordForm/>
             <p><Link to={ROUTES.AUTH.SIGNIN}>Return</Link></p>
         </div>

@@ -72,13 +72,11 @@ export class AuthService {
 
 	public async forgotPassword(credentials: { email: string }) {
 		const resetToken = this.useFetch.post(`${import.meta.env.VITE_APP_API_URL}/auth/forgot-password/`, credentials);
-		console.log(resetToken);
 		return this.tokenService.create(TOKENS.RESET_TOKEN, await resetToken);
 	}
 
 	public async resetPassword(credentials: { password: string, token: string }) {
-		const resetToken = this.useFetch.patch(`${import.meta.env.VITE_APP_API_URL}/auth/reset-password/${credentials.token}`, credentials);
-		console.log(resetToken);
+		const resetToken = this.useFetch.post(`${import.meta.env.VITE_APP_API_URL}/auth/reset-password/${credentials.token}`, credentials);
 		return this.tokenService.create(TOKENS.RESET_TOKEN, await resetToken);
 	}
 }

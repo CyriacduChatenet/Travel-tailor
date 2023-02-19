@@ -33,10 +33,7 @@ export class UserController {
   }
 
   @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() signupUserDto: any,
-  ): Promise<UpdateResult> {
+  update(@Param('id') id: string, @Body() signupUserDto: any) {
     return this.userService.update(id, signupUserDto);
   }
 

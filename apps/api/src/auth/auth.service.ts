@@ -76,8 +76,8 @@ export class AuthService {
   public async forgotPassword(forgotPasswordDto: ForgotPasswordDTO) {
     const user = await this.userService.findOneByEmail(forgotPasswordDto.email);
     const resetToken = await this.resetPasswordTokenService.create(user.id);
-    await this.userService.update(user.id, {
-      resetPasswordToken: (await resetToken).id,
+    this.userService.update(user.id, {
+      resetPasswordToken: resetToken.id,
     });
     return await this.mailService.sendForgotPasswordMail(
       forgotPasswordDto.email,
@@ -87,10 +87,12 @@ export class AuthService {
 
   public async resetPassword(
     resetToken: string,
-    resetPasswordDto: ResetPasswordDTO,
+    resetPasswordDto: { password },
   ) {
     const token = await this.resetPasswordTokenService.findOne(resetToken);
     const user = await this.userService.findOneByEmail(token.user.email);
-    return this.userService.update(user.id, resetPasswordDto.password);
+    return this.userService.update(user.id, {
+      password: await bcrypt.hash(resetPasswordDto.password, 10),
+    });
   }
 }

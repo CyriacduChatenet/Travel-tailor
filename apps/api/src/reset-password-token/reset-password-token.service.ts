@@ -32,10 +32,12 @@ export class ResetPasswordTokenService {
     });
   }
 
-  findOne(id: string) {
+  findOne(token: string) {
     return this.resetPasswordTokenRepository.findOne({
-      where: { id },
-      relations: ['user'],
+      where: { token },
+      relations: {
+        user: true,
+      },
     });
   }
 
