@@ -16,7 +16,6 @@ export class AdvertiserService {
             const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/advertiser`)
             const responseJSON = await response.json();
             this.dispatch(findAll(responseJSON));
-            console.log(responseJSON);
         } catch (err) {
             console.error(err);
         }
@@ -26,8 +25,8 @@ export class AdvertiserService {
         try {
             const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/advertiser/${id}`)
             const responseJSON = await response.json();
-            console.log(responseJSON);
             this.dispatch(findOne(id));
+            return responseJSON;
         } catch (err) {
             console.error(err);
         }
@@ -49,18 +48,11 @@ export class AdvertiserService {
             const advertiserId = responseAdvertiserJSON.id;
             const userId = this.params.id;
 
-            console.log('advertiserId', advertiserId);
-            console.log('userId', userId);
-
-            const userQuery = {
-                advertiser: advertiserId,
-            }
-
             const advertiserQuery = {
                 user: userId!,
             }
 
-            this.userService.update(String(userId), userQuery);
+            this.userService.update(String(userId), advertiserId);
             this.update(advertiserId, advertiserQuery);
         } catch (err) {
             console.error(err);
@@ -79,7 +71,6 @@ export class AdvertiserService {
             });
             const responseJSON = await response.json();
             this.dispatch(update({id, responseJSON}));
-            console.log(responseJSON);
         } catch (err) {
             console.error(err);
         }
@@ -96,7 +87,7 @@ export class AdvertiserService {
             });
             const responseJSON = await response.json();
             this.dispatch(remove(id));
-            console.log(responseJSON);
+            return responseJSON;
         } catch (err) {
             console.error(err);
         }

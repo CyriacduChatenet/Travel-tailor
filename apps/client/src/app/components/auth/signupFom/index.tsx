@@ -40,12 +40,10 @@ export const SignupForm: FC = () => {
     e.preventDefault();
     authService.signup(credentials, setErrorResponse);
     if (roles[0] === ROLES.TRAVELER) {
-        console.log(ROLES.TRAVELER);
         navigate(ROUTES.AUTH.SIGNIN);
     }
 
     if (roles[0] === ROLES.ADVERTISER) {
-        console.log(ROLES.ADVERTISER);
         if(id.length > 0) {
           navigate(`/create-advertiser/${id}`);
         }
