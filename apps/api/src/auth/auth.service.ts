@@ -9,6 +9,7 @@ import { LoginUserInputDTO } from '../user/dto/login-user.dto';
 import { SignupUserInputDTO } from '../user/dto/signup-user.dto';
 import { UserService } from '../user/user.service';
 import { ForgotPasswordDTO } from './dto/forgotPassword.dto';
+import { ResetPasswordDTO } from './dto/resetPassword.dto';
 
 dotenv.config();
 
@@ -80,7 +81,16 @@ export class AuthService {
     });
     return await this.mailService.sendForgotPasswordMail(
       forgotPasswordDto.email,
-      `${process.env.VITE_APP_URL}/reset-password`,
+      `${process.env.VITE_APP_URL}/reset-password/${resetToken.token}`,
     );
+  }
+
+  public async resetPassword(
+    resetToken: string,
+    resetPasswordDto: ResetPasswordDTO,
+  ) {
+    const token = await this.resetPasswordTokenService.findOne(resetToken);
+    const user = await this.userService.findOneByEmail(token.user.email);
+    return this.userService.update(user.id, resetPasswordDto.password);
   }
 }

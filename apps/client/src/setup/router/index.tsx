@@ -10,6 +10,7 @@ import { AdminRouter } from "@/setup/router/admin";
 import { AdvertiserRouter } from "@/setup/router/advertiser";
 import { TravelerRouter } from "@/setup/router/traveler";
 import { ROUTES } from "@/setup/constants";
+import { ResetPasswordPage } from "@/app/pages/auth/resetPassword";
 
 export const Router: FC = () => {
   return (
@@ -19,6 +20,7 @@ export const Router: FC = () => {
         <Route path={ROUTES.AUTH.SIGNIN} element={<SigninPage />} />
         <Route path={ROUTES.AUTH.SIGNUP} element={<SignupPage />} />
         <Route path={ROUTES.AUTH.FORGOT_PASWORD} element={<ForgotPasswordPage />} />
+        <Route path={`${ROUTES.AUTH.RESET_PASWORD}/:token`} element={<ResetPasswordPage />} />
       </Routes>
       <AdminRouter />
       <AdvertiserRouter />

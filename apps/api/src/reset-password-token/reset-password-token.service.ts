@@ -17,8 +17,10 @@ export class ResetPasswordTokenService {
     const payload = {
       user: userId,
     };
+    const token = this.jwtService.sign(payload);
+    const tokenReplace = token.replace(/\./g, '');
     return this.resetPasswordTokenRepository.save({
-      token: this.jwtService.sign(payload),
+      token: tokenReplace,
     });
   }
 
