@@ -77,7 +77,7 @@ export class AuthService {
 	}
 
 	public async resetPassword(credentials: { password: string, token: string }) {
-		const resetToken = this.useFetch.put(`${import.meta.env.VITE_APP_API_URL}/auth/reset-password/${credentials.token}`, credentials);
+		const resetToken = this.useFetch.patch(`${import.meta.env.VITE_APP_API_URL}/auth/reset-password/${credentials.token}`, credentials);
 		console.log(resetToken);
 		return this.tokenService.create(TOKENS.RESET_TOKEN, await resetToken);
 	}

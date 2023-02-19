@@ -66,7 +66,7 @@ export class AdvertiserService {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
-                method: 'PUT',
+                method: 'PATCH',
                 body: JSON.stringify(credentials)
             });
             const responseJSON = await response.json();
