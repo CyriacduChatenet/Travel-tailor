@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateResetPasswordTokenDto } from './dto/create-reset-password-token.dto';
@@ -10,10 +11,16 @@ export class ResetPasswordTokenService {
   constructor(
     @InjectRepository(ResetPasswordToken)
     private resetPasswordTokenRepository: Repository<ResetPasswordToken>,
+    private jwtService: JwtService,
   ) {}
 
-  create(createResetPasswordTokenDto: CreateResetPasswordTokenDto) {
-    return this.resetPasswordTokenRepository.save(createResetPasswordTokenDto);
+  create(userId: string) {
+    const payload = {
+      user: userId,
+    };
+    return this.resetPasswordTokenRepository.save({
+      token: this.jwtService.sign(payload),
+    });
   }
 
   findAll() {

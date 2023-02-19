@@ -1,16 +1,23 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { LoginUserInputDTO } from 'src/user/dto/login-user.dto';
+import * as dotenv from 'dotenv';
 
+import { MailService } from '../mail/mail.service';
+import { ResetPasswordTokenService } from '../reset-password-token/reset-password-token.service';
+import { LoginUserInputDTO } from '../user/dto/login-user.dto';
 import { SignupUserInputDTO } from '../user/dto/signup-user.dto';
 import { UserService } from '../user/user.service';
+
+dotenv.config();
 
 @Injectable()
 export class AuthService {
   constructor(
     private userService: UserService,
     private jwtService: JwtService,
+    private resetPasswordTokenService: ResetPasswordTokenService,
+    private mailService: MailService,
   ) {}
 
   public async validateUser(email: string, password: string) {
@@ -62,5 +69,17 @@ export class AuthService {
       ...signupUserInputDTO,
       password,
     });
+  }
+
+  public async forgotPassword(email: string) {
+    const user = await this.userService.findOneByEmail(email);
+    const resetToken = await this.resetPasswordTokenService.create(user.id);
+    await this.userService.update(user.id, {
+      resetPasswordToken: (await resetToken).id,
+    });
+    return await this.mailService.sendForgotPasswordMail(
+      email,
+      `${process.env.VITE_APP_URL}/reset-password`,
+    );
   }
 }

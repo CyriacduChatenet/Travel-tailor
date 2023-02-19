@@ -8,7 +8,6 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ResetPasswordTokenService } from './reset-password-token.service';
-import { CreateResetPasswordTokenDto } from './dto/create-reset-password-token.dto';
 import { UpdateResetPasswordTokenDto } from './dto/update-reset-password-token.dto';
 
 @Controller('reset-password-token')
@@ -18,8 +17,8 @@ export class ResetPasswordTokenController {
   ) {}
 
   @Post()
-  create(@Body() createResetPasswordTokenDto: CreateResetPasswordTokenDto) {
-    return this.resetPasswordTokenService.create(createResetPasswordTokenDto);
+  create(@Body() userId: string) {
+    return this.resetPasswordTokenService.create(userId);
   }
 
   @Get()
