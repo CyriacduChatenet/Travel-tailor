@@ -1,10 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { CreateAdvertiserCredentials } from "@/setup/types/advertiser.type";
 import { findAll, findOne, create, update, remove, selectAdvertisers } from "@/setup/redux/slices/advertiser/advertiser.slice";
 import { UserService } from "@/setup/services/user.service";
+import { CreateAdvertiserCredentials } from "@/setup/types/advertiser.type";
 
 export class AdvertiserService {
     dispatch = useDispatch();
@@ -34,7 +33,7 @@ export class AdvertiserService {
         }
     }
 
-    public async create(credentials: any) {
+    public async create(credentials: CreateAdvertiserCredentials) {
         try {
             const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/advertiser`, {
                 headers: {
@@ -58,7 +57,7 @@ export class AdvertiserService {
             }
 
             const advertiserQuery = {
-                user: userId,
+                user: userId!,
             }
 
             this.userService.update(String(userId), userQuery);
@@ -68,7 +67,7 @@ export class AdvertiserService {
         }
     };
 
-    public async update(id: string, credentials: any) {
+    public async update(id: string, credentials: {user: string}) {
         try {
             const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/advertiser/${id}`, {
                 headers: {

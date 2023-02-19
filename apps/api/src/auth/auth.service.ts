@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
+import { LoginUserInputDTO } from 'src/user/dto/login-user.dto';
 
 import { SignupUserInputDTO } from '../user/dto/signup-user.dto';
 import { UserService } from '../user/user.service';
@@ -26,7 +27,7 @@ export class AuthService {
     }
   }
 
-  public async signin(user: any) {
+  public async signin(user: LoginUserInputDTO) {
     const findUser = await this.userService.findOneByEmail(user.email);
 
     if (!findUser) {

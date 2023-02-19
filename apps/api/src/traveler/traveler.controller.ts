@@ -30,7 +30,7 @@ export class TravelerController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateTravelerDto: any) {
+  update(@Param('id') id: string, @Body() updateTravelerDto: CreateTravelerDto) {
     return this.travelerService.update(id, updateTravelerDto);
   }
 

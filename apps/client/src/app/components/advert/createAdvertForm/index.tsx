@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, FormEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +22,7 @@ export const CreateAdvertForm: FC = () => {
     };
     
   return (
-    <form action="" onSubmit={(e: any) => {
+    <form action="" onSubmit={(e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         handleSubmit()}}>
       <label htmlFor="">

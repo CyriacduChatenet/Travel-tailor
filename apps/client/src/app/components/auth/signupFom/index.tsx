@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -36,7 +36,7 @@ export const SignupForm: FC = () => {
 
   const authService = new AuthService();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     authService.signup(credentials, setErrorResponse);
     if (roles[0] === ROLES.TRAVELER) {

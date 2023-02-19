@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 
 import { AuthService } from "@/setup/services/auth.service";
 
@@ -9,7 +9,7 @@ export const ForgotPasswordForm: FC = () => {
 
     const credentials = {email};
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
     };
 

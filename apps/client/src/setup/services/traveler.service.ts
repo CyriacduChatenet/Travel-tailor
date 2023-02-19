@@ -47,7 +47,7 @@ export class TravelerService {
         }
     };
 
-    public async update(id: string, credentials: any) {
+    public async update(id: string, credentials: { user: string}) {
         try {
             const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/traveler/${id}`, {
                 headers: {
