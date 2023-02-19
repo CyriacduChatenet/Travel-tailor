@@ -9,6 +9,7 @@ import { UserModule } from './user/user.module';
 import { AdvertiserModule } from './advertiser/advertiser.module';
 import { AdvertModule } from './advert/advert.module';
 import { TravelerModule } from './traveler/traveler.module';
+import { ResetPasswordTokenModule } from './reset-password-token/reset-password-token.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { TravelerModule } from './traveler/traveler.module';
     AdvertiserModule,
     AdvertModule,
     TravelerModule,
+    ResetPasswordTokenModule,
   ],
   controllers: [AppController],
   providers: [AppService],

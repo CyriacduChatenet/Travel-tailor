@@ -35,7 +35,7 @@ export class UserController {
   @Put(':id')
   update(
     @Param('id') id: string,
-    @Body() signupUserDto: SignupUserInputDTO,
+    @Body() signupUserDto: any,
   ): Promise<UpdateResult> {
     return this.userService.update(id, signupUserDto);
   }

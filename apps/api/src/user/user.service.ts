@@ -19,6 +19,7 @@ export class UserService {
       relations: {
         traveler: true,
         advertiser: true,
+        resetPasswordToken: true,
       },
     });
   }
@@ -26,11 +27,11 @@ export class UserService {
   findOneByEmail(email: string): Promise<User> {
     return this.userRepository.findOne({
       where: { email },
-      relations: ['traveler', 'advertiser'],
+      relations: ['traveler', 'advertiser', 'resetPasswordToken'],
     });
   }
 
-  update(id: string, signupUserDto: SignupUserInputDTO): Promise<UpdateResult> {
+  update(id: string, signupUserDto: any): Promise<UpdateResult> {
     return this.userRepository.update(id, signupUserDto);
   }
 
