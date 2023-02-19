@@ -10,6 +10,7 @@ import { AdvertiserModule } from './advertiser/advertiser.module';
 import { AdvertModule } from './advert/advert.module';
 import { TravelerModule } from './traveler/traveler.module';
 import { ResetPasswordTokenModule } from './reset-password-token/reset-password-token.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { ResetPasswordTokenModule } from './reset-password-token/reset-password-
     AdvertModule,
     TravelerModule,
     ResetPasswordTokenModule,
+    MailModule,
   ],
   controllers: [AppController],
   providers: [AppService],
