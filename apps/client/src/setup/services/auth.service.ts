@@ -91,8 +91,4 @@ export class AuthService {
       this.tokenService.create(responseJSON.access_token);
     }
   }
-
-  async forgotPassword (credentials: { email: string }) {
-    return await this.useFetch.post(`${import.meta.env.VITE_APP_API_URL}/mail/forgot-password`, credentials);
-  };
 }

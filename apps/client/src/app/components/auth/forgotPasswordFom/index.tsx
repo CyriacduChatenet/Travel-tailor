@@ -11,7 +11,6 @@ export const ForgotPasswordForm: FC = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        authService.forgotPassword(credentials)
     };
 
     return (
