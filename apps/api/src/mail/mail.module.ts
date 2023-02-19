@@ -3,7 +3,6 @@ import { MailerModule } from '@nestjs-modules/mailer';
 import * as dotenv from 'dotenv';
 
 import { MailService } from './mail.service';
-import { MailController } from './mail.controller';
 
 dotenv.config();
 
@@ -25,7 +24,6 @@ dotenv.config();
       },
     }),
   ],
-  controllers: [MailController],
   providers: [MailService],
   exports: [MailService],
 })
