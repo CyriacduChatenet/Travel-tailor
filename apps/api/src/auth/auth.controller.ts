@@ -1,8 +1,9 @@
-import { Body, Controller, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 
 import { LoginUserInputDTO } from '../user/dto/login-user.dto';
 import { SignupUserInputDTO } from '../user/dto/signup-user.dto';
 import { AuthService } from './auth.service';
+import { ForgotPasswordDTO } from './dto/forgotPassword.dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 
 @Controller('auth')
@@ -20,8 +21,8 @@ export class AuthController {
     return this.authService.signup(signupUserInputDTO);
   }
 
-  @Post('forgot-password/:email')
-  public forgotPassword(@Param('email') email: string) {
-    return this.authService.forgotPassword(email);
+  @Post('forgot-password')
+  public forgotPassword(@Body() forgotPasswordDto: ForgotPasswordDTO) {
+    return this.authService.forgotPassword(forgotPasswordDto);
   }
 }

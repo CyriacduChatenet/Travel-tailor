@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateResetPasswordTokenDto } from './dto/create-reset-password-token.dto';
 import { UpdateResetPasswordTokenDto } from './dto/update-reset-password-token.dto';
 import { ResetPasswordToken } from './entities/reset-password-token.entity';
 

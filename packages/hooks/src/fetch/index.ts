@@ -11,14 +11,14 @@ export class UseFetchHook {
         return await response.json();
 	};
 
-	post = async (api_url: string, body: Object) => {
+	post = async (api_url: string, body?: Object) => {
         const response = await fetch(api_url, {
 			headers: {
 				'Content-Type': 'application/json',
 				Accept: 'application/json',
 			},
 			method: 'POST',
-            body: JSON.stringify(body)
+            body: JSON.stringify(body!)
 		});
 
         return await response.json();

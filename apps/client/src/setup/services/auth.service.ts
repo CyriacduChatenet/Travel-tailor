@@ -31,7 +31,7 @@ export class AuthService {
 		if (responseUserJSON.status >= 400) {
 			setErrorState(responseUserJSON);
 		}
-    
+
 		this.dispatch(changeId(responseUserJSON.id));
 		this.dispatch(create(responseUserJSON));
 
@@ -71,7 +71,8 @@ export class AuthService {
 	}
 
 	public async forgotPassword(credentials: { email: string }) {
-		const resetToken = await this.useFetch.post(`${import.meta.env.VITE_APP_API_URL}/auth/forgot-password/${credentials}`, {});
-    return this.tokenService.create(TOKENS.RESET_TOKEN, resetToken);
+		const resetToken = this.useFetch.post(`${import.meta.env.VITE_APP_API_URL}/auth/forgot-password/`, credentials);
+		console.log(resetToken);
+		return this.tokenService.create(TOKENS.RESET_TOKEN, await resetToken);
 	}
 }
