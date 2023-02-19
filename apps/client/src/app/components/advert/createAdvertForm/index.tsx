@@ -4,15 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 import { changeName, selectName } from "@/setup/redux/slices/adverts/createAdvertRequest.slice";
 import { AdvertService } from "@/setup/services/advert.service";
-import { TokenService } from "@/setup/services/token.service";
 import { ROUTES } from "@/setup/constants";
 
 export const CreateAdvertForm: FC = () => {
     const name = useSelector(selectName);
     const dispatch = useDispatch();
     const navigate = useNavigate()
-    const advertService = new AdvertService();
-    const tokenService = new TokenService();
+    const advertService = new AdvertService()
 
     const credentials = { name };
 

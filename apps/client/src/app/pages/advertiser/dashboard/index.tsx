@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { TokenService } from "@/setup/services/token.service";
 import { AdvertService } from "@/setup/services/advert.service";
 import { selectAdverts } from "@/setup/redux/slices/adverts/advert.slice";
-import { ROUTES } from "@/setup/constants";
+import { ROUTES, TOKENS } from "@/setup/constants";
 
 import "./style.css";
 
@@ -25,7 +25,7 @@ export const AdvertiserDashboardPage: FC = () => {
   };
 
   const handleLogout = () => {
-    tokenService.delete();
+    tokenService.delete(TOKENS.ACCESS_TOKEN);
     navigate(ROUTES.AUTH.SIGNIN);
   };
 

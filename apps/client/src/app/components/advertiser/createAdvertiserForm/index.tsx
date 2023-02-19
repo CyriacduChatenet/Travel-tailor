@@ -12,7 +12,6 @@ export const CreateAdvertiserForm: FC = () => {
     const name = useSelector(selectName);
     const location = useSelector(selectLocation);
     const navigate = useNavigate();
-    const tokenService = new TokenService();
     const advertiserService = new AdvertiserService();
 
     const credentials = {name, location}

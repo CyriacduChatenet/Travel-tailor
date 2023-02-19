@@ -26,3 +26,8 @@ export const ROLES = {
   TRAVELER: 'traveler',
   ADMIN: 'admin',
 }
+
+export const TOKENS = {
+  ACCESS_TOKEN: 'access_token',
+  RESET_TOKEN: 'reset_token',
+}
