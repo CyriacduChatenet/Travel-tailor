@@ -1,4 +1,5 @@
 import { Body, Controller, Param, Post, UseGuards } from '@nestjs/common';
+import { SigninDTO } from '@travel-manager/types';
 
 import { LoginUserInputDTO } from '../user/dto/login-user.dto';
 import { SignupUserInputDTO } from '../user/dto/signup-user.dto';
@@ -13,7 +14,7 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('signin')
-  public async signin(@Body() signinUserInputDTO: LoginUserInputDTO) {
+  public async signin(@Body() signinUserInputDTO: SigninDTO) {
     return this.authService.signin(signinUserInputDTO);
   }
 
