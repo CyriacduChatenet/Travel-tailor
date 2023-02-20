@@ -1,11 +1,12 @@
 import { Body, Controller, Param, Post, UseGuards } from '@nestjs/common';
-import { SigninDTO } from '@travel-manager/types';
+import {
+  SigninDTO,
+  SignupDTO,
+  ForgotPasswordDTO,
+  ResetPasswordDTO,
+} from '@travel-manager/types';
 
-import { LoginUserInputDTO } from '../user/dto/login-user.dto';
-import { SignupUserInputDTO } from '../user/dto/signup-user.dto';
 import { AuthService } from './auth.service';
-import { ForgotPasswordDTO } from './dto/forgotPassword.dto';
-import { ResetPasswordDTO } from './dto/resetPassword.dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 
 @Controller('auth')
@@ -19,7 +20,7 @@ export class AuthController {
   }
 
   @Post('signup')
-  public signup(@Body() signupUserInputDTO: SignupUserInputDTO) {
+  public signup(@Body() signupUserInputDTO: SignupDTO) {
     return this.authService.signup(signupUserInputDTO);
   }
 

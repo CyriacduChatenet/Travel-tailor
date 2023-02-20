@@ -2,12 +2,12 @@ import { FC, FormEvent, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { jwtDecode, Role } from "@travel-manager/functions";
+import { AccessToken, SigninDTO } from "@travel-manager/types";
 
 import { AuthService } from "@/setup/services/auth.service";
 import { errorResponse } from "@/setup/types/errorApiResponse";
 import { changeEmail, changePassword, selectEmail, selectPassword } from "@/setup/redux/slices/auth/signin.slice";
 import { TokenService } from "@/setup/services/token.service";
-import { Token } from "@/setup/types/token.type";
 import { ROUTES, TOKENS } from "@/setup/constants";
 
 export const SigninForm: FC = () => {
@@ -20,11 +20,11 @@ export const SigninForm: FC = () => {
 
     const authService = new AuthService();
     const tokenService = new TokenService();
-    const credentials = {email, password};
+    const credentials: SigninDTO = {email, password};
 
     const handleFinduserRole = () => {
         const token = tokenService.find(TOKENS.ACCESS_TOKEN);
-        const decodedToken = jwtDecode(String(token)) satisfies Token;
+        const decodedToken = jwtDecode(String(token)) satisfies AccessToken;
         return decodedToken.roles;
     };
 
