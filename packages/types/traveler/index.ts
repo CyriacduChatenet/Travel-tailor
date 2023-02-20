@@ -8,10 +8,10 @@ export type Traveler = {
     deletedAt: Date | null;
 };
 
-export type CreateTraveler = {
+export type CreateTravelerDTO = {
     user: string[];
 };
 
-export type UpdateTraveler = {
+export type UpdateTravelerDTO = {
     user: string[];
 };

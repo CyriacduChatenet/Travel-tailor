@@ -12,14 +12,14 @@ export type Advertiser = {
     deletedAt: Date | null;
 };
 
-export type CreateAdvertiser = {
+export type CreateAdvertiserDTO = {
     name: string;
     location: string;
     user: string[];
     adverts: string[];
 }
 
-export type UpdateAdvertiser = {
+export type UpdateAdvertiserDTO = {
     name: string;
     location: string;
     user: string[];

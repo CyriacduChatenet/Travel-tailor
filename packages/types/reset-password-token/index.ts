@@ -9,12 +9,12 @@ export type ResetPasswordToken = {
     deletedAt: Date | null;
 };
 
-export type CreateResetPasswordToken = {
+export type CreateResetPasswordTokenDTO = {
     token: string;
     user: string;
 };
 
-export type UpdateResetPasswordToken = {
+export type UpdateResetPasswordTokenDTO = {
     token: string;
     user: string;
 };

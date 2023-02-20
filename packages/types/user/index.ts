@@ -16,7 +16,7 @@ export type User = {
     deletedAt: Date | null;
 };
 
-export type CreateUser = {
+export type CreateUserDTO = {
     username: string;
     email: string;
     password: string;
@@ -26,7 +26,7 @@ export type CreateUser = {
     resetPasswordToken: string;
 };
 
-export type UpdateUser = {
+export type UpdateUserDTO = {
     username: string;
     email: string;
     password: string;
