@@ -44,7 +44,7 @@ export const SignupForm: FC = () => {
     }
 
     if (roles[0] === ROLES.ADVERTISER) {
-        if(id.length > 0) {
+        if(String(id).length > 0) {
           navigate(`/create-advertiser/${id}`);
         }
     }
