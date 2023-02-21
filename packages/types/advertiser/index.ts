@@ -5,8 +5,8 @@ export type Advertiser = {
     id: string;
     name: string;
     location: string;
-    user: User;
-    adverts: Advert[];
+    user?: User;
+    adverts?: Advert[];
     createdAt: Date;
     updatedAt: Date;
     deletedAt: Date | null;
@@ -15,8 +15,8 @@ export type Advertiser = {
 export type CreateAdvertiserDTO = {
     name: string;
     location: string;
-    user: string[];
-    adverts: Advert[];
+    user?: string[];
+    adverts?: Advert[];
 }
 
 export type UpdateAdvertiserDTO = {
