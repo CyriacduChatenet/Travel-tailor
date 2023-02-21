@@ -16,7 +16,7 @@ export type CreateAdvertiserDTO = {
     name: string;
     location: string;
     user: string[];
-    adverts: string[];
+    adverts: Advert[];
 }
 
 export type UpdateAdvertiserDTO = {

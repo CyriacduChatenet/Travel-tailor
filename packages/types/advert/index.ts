@@ -3,7 +3,7 @@ import { Advertiser } from "../advertiser";
 export type Advert = {
     id: string;
     name: string;
-    advertiser: Advertiser;
+    advertiser?: Advertiser;
     createdAt: Date;
     updatedAt: Date;
     deletedAt: Date | null;
@@ -11,10 +11,9 @@ export type Advert = {
 
 export type CreateAdvertDTO = {
     name: string;
-    advertiser: string;
+    advertiserId: string;
 }
 
 export type UpdateAdvertDTO = {
     name: string;
-    advertiser: string;
 }
