@@ -1,10 +1,9 @@
 import { FC, FormEvent, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { SignupDTO } from "@travel-manager/types";
+import { ErrorResponse, SignupDTO } from "@travel-manager/types";
 
 import { AuthService } from "@/setup/services/auth.service";
-import { errorResponse } from "@/setup/types/errorApiResponse";
 import {
   changeEmail,
   changePassword,
@@ -19,7 +18,7 @@ import {
 import { ROLES, ROUTES } from "@/setup/constants";
 
 export const SignupForm: FC = () => {
-  const [errorResponse, setErrorResponse] = useState<errorResponse>({
+  const [errorResponse, setErrorResponse] = useState<ErrorResponse>({
     statusCode: 0,
     message: "",
   });

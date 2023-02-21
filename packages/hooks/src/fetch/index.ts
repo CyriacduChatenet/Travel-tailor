@@ -13,7 +13,7 @@ export class UseFetchHook {
         return await response.json();
 	};
 
-	post = async (api_url: string, token: AccessToken, body?: Object) => {
+	post = async (api_url: string, body?: any,  token?: AccessToken) => {
         const response = await fetch(api_url, {
 			headers: {
 				ContentType: 'application/json',
@@ -27,7 +27,7 @@ export class UseFetchHook {
         return await response.json();
     };
 
-	patch = async (api_url: string, token: AccessToken, body: Object) => {
+	patch = async (api_url: string, body: Object,  token?: AccessToken) => {
         const response = await fetch(api_url, {
 			headers: {
 				ContentType: 'application/json',
