@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/jit": "^0.1.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -16,6 +17,7 @@
     "@travel-manager/functions": "workspace:*",
     "@travel-manager/hooks": "workspace:*",
     "@travel-manager/types": "workspace:*",
+    "@travel-manager/ui": "workspace:*",
     "@types/node": "18.11.18",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
