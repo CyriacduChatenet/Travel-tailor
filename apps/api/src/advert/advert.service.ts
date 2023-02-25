@@ -14,23 +14,23 @@ export class AdvertService {
     return this.advertRepository.save(createAdvertDto);
   }
 
-  findAll() {
-    return this.advertRepository.find({
+  async findAll() {
+    return await this.advertRepository.find({
       relations: {
         advertiser: true,
       },
     });
   }
 
-  findOne(id: string) {
-    return this.advertRepository.findOneBy({ id });
+  async findOne(id: string) {
+    return await this.advertRepository.findOneBy({ id });
   }
 
-  update(id: string, updateAdvertDto: UpdateAdvertDto) {
-    return this.advertRepository.update(id, updateAdvertDto);
+  async update(id: string, updateAdvertDto: UpdateAdvertDto) {
+    return await this.advertRepository.update(id, updateAdvertDto);
   }
 
-  remove(id: string) {
-    return this.advertRepository.softDelete({ id });
+  async remove(id: string) {
+    return await this.advertRepository.softDelete({ id });
   }
 }
