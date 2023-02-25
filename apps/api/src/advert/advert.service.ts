@@ -27,7 +27,10 @@ export class AdvertService {
   }
 
   async update(id: string, updateAdvertDto: UpdateAdvertDto) {
-    return await this.advertRepository.update(id, updateAdvertDto);
+    const advertInDB: any = await this.findOne(id);
+    advertInDB.name = updateAdvertDto.name;
+    advertInDB.advertiser = updateAdvertDto.advertiser;
+    return await this.advertRepository.save(advertInDB);
   }
 
   async remove(id: string) {

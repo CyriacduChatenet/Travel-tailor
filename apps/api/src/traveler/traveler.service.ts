@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateTravelerDto } from './dto/create-traveler.dto';
+import { UpdateTravelerDTO } from './dto/update-traveler.dto';
 
 import { Traveler } from './entities/traveler.entity';
 
@@ -35,8 +36,11 @@ export class TravelerService {
     });
   }
 
-  async update(id: string, updateTravelerDto: CreateTravelerDto) {
-    return await this.travelerRepository.update(id, updateTravelerDto);
+  async update(id: string, updateTravelerDto: UpdateTravelerDTO) {
+    const travelerInDB: any = await this.findOne(id);
+    travelerInDB.tastes = updateTravelerDto.tastes;
+    travelerInDB.user = updateTravelerDto.user;
+    return await this.travelerRepository.save(travelerInDB);
   }
 
   async remove(id: string) {

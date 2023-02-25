@@ -31,8 +31,11 @@ export class UserService {
     });
   }
 
-  async update(id: string, signupUserDto: any) {
-    return await this.userRepository.update(id, signupUserDto);
+  async update(email: string, signupUserDto: any) {
+    const userInDB: any = await this.findOneByEmail(email);
+    userInDB.tastes = signupUserDto.tastes;
+    userInDB.user = signupUserDto.user;
+    return await this.userRepository.save(userInDB);
   }
 
   async remove(id: string): Promise<DeleteResult> {
