@@ -22,6 +22,7 @@ export class TravelerService {
       relations: {
         user: true,
         tastes: true,
+        travels: true,
       },
     });
   }
@@ -32,6 +33,7 @@ export class TravelerService {
       relations: {
         user: true,
         tastes: true,
+        travels: true,
       },
     });
   }
