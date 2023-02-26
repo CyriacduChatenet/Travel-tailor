@@ -15,6 +15,6 @@ export type CreateTasteDTO = {
 }
 
 export type UpdateTasteDTO = {
+    traveler?: string;
     name: string
-    traveler?: Traveler;
 }
