@@ -7,6 +7,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  JoinColumn,
 } from 'typeorm';
 
 import { User } from '../../user/entities/user.entity';
@@ -16,7 +17,10 @@ export class Traveler {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @OneToOne(() => User, (user) => user.traveler)
+  @OneToOne(() => User, (user) => user.traveler, {
+    cascade: true,
+  })
+  @JoinColumn()
   user: User;
 
   @OneToMany(() => Taste, (taste) => taste.traveler)
