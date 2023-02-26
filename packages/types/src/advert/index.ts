@@ -11,9 +11,10 @@ export type Advert = {
 
 export type CreateAdvertDTO = {
     name: string;
-    advertiserId?: string;
+    advertiser?: string;
 }
 
 export type UpdateAdvertDTO = {
     name: string;
+    advertiser: string;
 }
