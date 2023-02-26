@@ -19,9 +19,7 @@ export class ResetPasswordToken {
   @Column()
   token: string;
 
-  @OneToOne(() => User, (user) => user.resetPasswordToken, {
-    cascade: true,
-  })
+  @OneToOne(() => User, (user) => user.resetPasswordToken)
   @JoinColumn()
   user: User;
 

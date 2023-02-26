@@ -24,9 +24,7 @@ export class Advertiser {
   @Column()
   location: string;
 
-  @OneToOne(() => User, (user) => user.advertiser, {
-    cascade: true,
-  })
+  @OneToOne(() => User, (user) => user.advertiser)
   @JoinColumn()
   user: User;
 
