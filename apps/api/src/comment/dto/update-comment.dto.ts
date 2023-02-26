@@ -1,4 +1,7 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateCommentDto } from './create-comment.dto';
+import { UpdateCommentDTO } from '@travel-manager/types';
 
-export class UpdateCommentDto extends PartialType(CreateCommentDto) {}
+export class UpdateCommentDto implements UpdateCommentDTO {
+  content: string;
+  likes: number;
+  traveler: string;
+}
