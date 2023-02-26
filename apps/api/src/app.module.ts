@@ -14,7 +14,7 @@ import { MailModule } from './mail/mail.module';
 import { TasteModule } from './taste/taste.module';
 import { TravelModule } from './travel/travel.module';
 import { CommentModule } from './comment/comment.module';
-import { ActivtyModule } from './activty/activty.module';
+import { ActivityModule } from './activity/activity.module';
 
 @Module({
   imports: [
@@ -41,7 +41,7 @@ import { ActivtyModule } from './activty/activty.module';
     TasteModule,
     TravelModule,
     CommentModule,
-    ActivtyModule,
+    ActivityModule,
   ],
   controllers: [AppController],
   providers: [AppService],
