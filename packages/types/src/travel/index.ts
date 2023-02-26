@@ -13,7 +13,7 @@ export type Travel = {
 };
 
 export type CreateTravelDTO = {
-    traveler: string;
+    traveler?: string;
     departureCity: string;
     destinationCity: string;
     departureDate: Date;
@@ -21,7 +21,7 @@ export type CreateTravelDTO = {
 }
 
 export type UpdateTravelDTO = {
-    traveler: string;
+    traveler?: string;
     departureCity: string;
     destinationCity: string;
     departureDate: Date;
