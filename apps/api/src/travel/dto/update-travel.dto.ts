@@ -1,4 +1,9 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateTravelDto } from './create-travel.dto';
+import { UpdateTravelDTO } from '@travel-manager/types';
 
-export class UpdateTravelDto extends PartialType(CreateTravelDto) {}
+export class UpdateTravelDto implements UpdateTravelDTO {
+  traveler: string;
+  departureCity: string;
+  destinationCity: string;
+  departureDate: Date;
+  returnDate: Date;
+}
