@@ -18,9 +18,7 @@ import { ActivityModule } from './activity/activity.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.POSTGRESQL_DATABASE_HOST,
