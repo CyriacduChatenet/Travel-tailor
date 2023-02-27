@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -15,21 +14,12 @@ import { TasteModule } from './taste/taste.module';
 import { TravelModule } from './travel/travel.module';
 import { CommentModule } from './comment/comment.module';
 import { ActivityModule } from './activity/activity.module';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-    }),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: process.env.POSTGRESQL_DATABASE_HOST,
-      port: parseInt(process.env.POSTGRESQL_DATABASE_PORT),
-      username: process.env.POSTGRESQL_DATABASE_USERNAME,
-      password: process.env.POSTGRESQL_DATABASE_PASSWORD,
-      database: process.env.POSTGRESQL_DATABASE_NAME,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
     }),
     AuthModule,
     UserModule,
@@ -42,6 +32,7 @@ import { ActivityModule } from './activity/activity.module';
     TravelModule,
     CommentModule,
     ActivityModule,
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
