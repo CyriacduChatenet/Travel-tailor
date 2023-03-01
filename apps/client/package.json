@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@travel-tailor/functions": "workspace:*",
-    "@travel-tailor/hooks": "workspace:*",
     "@travel-tailor/types": "workspace:*",
     "@types/node": "18.11.18",
     "@types/react": "^18.0.26",
