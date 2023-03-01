@@ -13,6 +13,11 @@
 
 <br/>
 
+## Lib Schema
+<img src="./assets/images/lib-schema.jpg" alt="Lib schema">
+
+<br/>
+
 ## .env example
 ```bash
 API_PORT =
