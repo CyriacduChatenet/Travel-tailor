@@ -28,7 +28,7 @@ export const WebForgotPasswordForm: FC = () => {
 					onChange={handleChange}
 				/>
 			</label>
-			<input type="submit" value={'Signup'} />
+			<input type="submit" value={'forgot password'} />
 		</form>
 	);
 };

@@ -23,7 +23,7 @@ export const WebResetPasswordForm: FC = () => {
 				<span>Password</span>
 				<input type="password" placeholder="Password" name="password" onChange={handleChange} />
 			</label>
-			<input type="submit" value={'Signup'} />
+			<input type="submit" value={'reset password'} />
 		</form>
 	);
 };
