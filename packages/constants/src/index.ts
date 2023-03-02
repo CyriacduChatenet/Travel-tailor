@@ -9,3 +9,7 @@ export const API_RESET_PASSWORD_ROUTE = `${process.env.API_URL}/auth/reset-passw
 
 export const ACCESS_TOKEN = 'accessToken';
 export const RESET_TOKEN = 'resetToken';
+
+export const ROUTES = {
+    SIGNIN: '/signin',
+};

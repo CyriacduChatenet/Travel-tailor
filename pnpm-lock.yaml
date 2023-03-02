@@ -147,9 +147,17 @@ importers:
 
   packages/hooks:
     specifiers:
+      '@travel-tailor/constants': 'workspace: *'
+      '@travel-tailor/services': 'workspace: *'
       '@travel-tailor/types': 'workspace: *'
+      '@types/react': ^18.0.28
+      react: ^18.2.0
     dependencies:
+      '@travel-tailor/constants': link:../constants
+      '@travel-tailor/services': link:../services
       '@travel-tailor/types': link:../types
+      '@types/react': 18.0.28
+      react: 18.2.0
 
   packages/services:
     specifiers:
