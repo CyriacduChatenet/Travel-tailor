@@ -1,6 +1,6 @@
 import { AuthService } from '@travel-tailor/services';
 import { SignupDTO } from '@travel-tailor/types';
-import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { FC, FormEvent, useState } from 'react';
 
 export const WebSignupForm: FC = () => {
 	const [credentials, setCredentials] = useState<SignupDTO>({
