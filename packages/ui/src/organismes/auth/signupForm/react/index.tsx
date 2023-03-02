@@ -7,10 +7,10 @@ export const WebSignupForm: FC = () => {
 		username: '',
 		email: '',
 		password: '',
-		roles: [],
+		roles: '',
 	});
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: any) => {
         const { name, value } = e.target;
         setCredentials({ ...credentials, [name]: value });
     };
@@ -51,7 +51,7 @@ export const WebSignupForm: FC = () => {
 			</label>
 			<label htmlFor="">
 				<span>Roles</span>
-				<select name="roles" onChange={() => handleChange}>
+				<select name="roles" onChange={handleChange}>
 					<option value="">select role</option>
 					<option value="traveler">Traveler</option>
 					<option value="advertiser">Advertiser</option>
