@@ -134,10 +134,24 @@ importers:
       jwt-decode: 3.1.2
 
   packages/hooks:
-    specifiers: {}
+    specifiers:
+      '@travel-tailor/types': 'workspace: *'
+    dependencies:
+      '@travel-tailor/types': link:../types
 
   packages/services:
-    specifiers: {}
+    specifiers:
+      '@travel-tailor/contexts': workspace:*
+      '@travel-tailor/hooks': workspace:*
+      '@travel-tailor/types': workspace:*
+      '@types/dotenv': ^8.2.0
+      dotenv: ^16.0.3
+    dependencies:
+      '@travel-tailor/contexts': link:../contexts
+      '@travel-tailor/hooks': link:../hooks
+      '@travel-tailor/types': link:../types
+      '@types/dotenv': 8.2.0
+      dotenv: 16.0.3
 
   packages/types:
     specifiers: {}
@@ -1262,6 +1276,13 @@ packages:
     dependencies:
       '@types/node': 18.11.18
     dev: true
+
+  /@types/dotenv/8.2.0:
+    resolution: {integrity: sha512-ylSC9GhfRH7m1EUXBXofhgx4lUWmFeQDINW5oLuS+gxWdfUeW4zJdeVTYVkexEW+e2VUvlZR2kGnGGipAWR7kw==}
+    deprecated: This is a stub types definition. dotenv provides its own type definitions, so you do not need this installed.
+    dependencies:
+      dotenv: 16.0.3
+    dev: false
 
   /@types/ejs/3.1.1:
     resolution: {integrity: sha512-RQul5wEfY7BjWm0sYY86cmUN/pcXWGyVxWX93DFFJvcrxax5zKlieLwA3T77xJGwNcZW0YW6CYG70p1m8xPFmA==}
