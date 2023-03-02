@@ -1,1 +1,1 @@
-export { useFetchHook } from "./fetch/index.hook";
+export { useFetch } from "./fetch/index.hook";
