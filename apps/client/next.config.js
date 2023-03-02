@@ -1,15 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
-	experimental: {
 		transpilePackages: [
-			'@travel-tailor/types',
-			'@travel-tailor/functions',
-			'@travel-tailor/hooks',
-			'@travel-tailor/contexts',
-			'@travel-tailor/services',
-		],
-	},
+		'@travel-tailor/functions',
+		'@travel-tailor/types',
+		'@travel-tailor/hooks',
+		'@travel-tailor/contexts',
+		'@travel-tailor/services',
+		'@travel-tailor/constants',
+		'@travel-tailor/ui',
+	],
+	experimental: {
+		externalDir: true,
+	}
 };
 
 module.exports = nextConfig;

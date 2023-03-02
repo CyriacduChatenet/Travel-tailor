@@ -34,6 +34,11 @@ POSTGRESQL_DATABASE_PASSWORD =
 MAILDEV_PORT =
 ```
 
+run project 
+```bash
+pnpm -r --parallel run dev
+```
+
 ## Deployed environements
 
 - [API](https://travel-manager-api.vercel.app/api/v1)
