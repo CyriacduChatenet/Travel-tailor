@@ -8,4 +8,13 @@ export const RESET_TOKEN = 'resetToken';
 
 export const ROUTES = {
     SIGNIN: '/signin',
+    TRAVELER: {
+        DASHBOARD: '/traveler/dashboard',
+    }
+};
+
+export const ROLES = {
+    ADMIN: 'admin',
+    TRAVELER: 'traveler',
+    ADVERTISER: 'advertiser'
 };
