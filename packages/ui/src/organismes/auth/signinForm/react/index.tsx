@@ -13,13 +13,18 @@ export const WebSigninForm: FC = () => {
 	const router = useRouter();
 
 	const handleRedirect = async (user: any) => {
-		if(await user.roles == ROLES.TRAVELER) {
-			router.push(ROUTES.TRAVELER.DASHBOARD);
-		};
+		if(user.roles === ROLES.ADMIN) {
+			router.push(ROUTES.ADMIN.DASHBOARD)
+		} else if(user.roles === ROLES.TRAVELER) {
+			router.push(ROUTES.TRAVELER.DASHBOARD)
+		} else if(user.roles === ROLES.ADVERTISER) {
+			router.push(ROUTES.ADVERTISER.DASHBOARD)
+		}
 	};
 
-	const handleSubmit = () => {
-		const user = AuthService.signin(credentials);
+	const handleSubmit = async () => {
+		const user = await AuthService.signin(credentials);
+		console.log(user);
 		handleRedirect(user);
 	};
 
