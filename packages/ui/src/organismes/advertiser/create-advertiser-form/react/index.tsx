@@ -7,7 +7,7 @@ import { ChangeEvent, FC, FormEvent, useState } from 'react';
 export const WebCreateAdvertiserForm: FC = () => {
 	const router = useRouter();
 
-	const userId = location.pathname.split('/')[3]
+	const userId = window.location.pathname.split('/')[3]
 
 	const [credentials, setCredentials] = useState<CreateAdvertiserDTO>({
 		name: '',

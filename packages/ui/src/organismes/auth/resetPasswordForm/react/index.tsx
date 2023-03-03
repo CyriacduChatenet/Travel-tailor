@@ -14,7 +14,7 @@ export const WebResetPasswordForm: FC = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		const token = location.pathname.split('/').pop()
+		const token = window.location.pathname.split('/').pop()
 		return AuthService.resetPassword(credentials, String(token));
 	};
 
