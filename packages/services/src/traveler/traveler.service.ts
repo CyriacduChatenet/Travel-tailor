@@ -1,8 +1,8 @@
 import { API_TRAVELER_ROUTE } from "@travel-tailor/constants";
 import { useFetch } from "@travel-tailor/hooks";
-import { CreateTravelDTO } from "@travel-tailor/types";
+import { CreateTravelerDTO } from "@travel-tailor/types";
 
-const createTraveler = (credentials: CreateTravelDTO) => {
+const createTraveler = (credentials: CreateTravelerDTO) => {
     return useFetch.post(API_TRAVELER_ROUTE, credentials)
 };
 
