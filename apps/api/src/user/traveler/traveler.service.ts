@@ -64,7 +64,7 @@ export class TravelerService {
         tastes: [...traveler.tastes, ...updateTravelerDto.tastes],
       });
     } catch (error) {
-      throw new NotFoundException(error);
+      throw new UnauthorizedException(error);
     }
   }
 
