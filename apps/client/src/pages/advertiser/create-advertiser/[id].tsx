@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
-import { WebCreateAdvertiserForm } from '@travel-tailor/ui';
 
 import { Layout } from '@/layout';
+import { WebCreateAdvertiserForm } from '@/organismes/advertiser/create-advertiser-form/react';
 
 const CreateAdvertiser: NextPage = () => {
 	return (
