@@ -10,6 +10,12 @@ export const ROUTES = {
     SIGNIN: '/signin',
     TRAVELER: {
         DASHBOARD: '/traveler/dashboard',
+    },
+    ADVERTISER: {
+        DASHBOARD: '/advertiser/dashboard'
+    },
+    ADMIN: {
+        DASHBOARD: '/admin/dashboard'
     }
 };
 
