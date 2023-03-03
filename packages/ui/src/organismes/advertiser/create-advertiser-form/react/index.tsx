@@ -7,12 +7,12 @@ import { ChangeEvent, FC, FormEvent, useState } from 'react';
 export const WebCreateAdvertiserForm: FC = () => {
 	const router = useRouter();
 
-	const userId = window.location.pathname.split('/')[3]
+	const userId = router.query.id;
 
 	const [credentials, setCredentials] = useState<CreateAdvertiserDTO>({
 		name: '',
 		location: '',
-		user: userId
+		user: String(userId),
 	});
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +23,7 @@ export const WebCreateAdvertiserForm: FC = () => {
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
         const advertiser = await AdvertiserService.createAdvertiser(credentials);
-		await UserService.updateUser(userId, { advertiser: advertiser.id });
+		await UserService.updateUser(String(userId), { advertiser: advertiser.id });
 		return router.push(ROUTES.SIGNIN);
 	};
     
