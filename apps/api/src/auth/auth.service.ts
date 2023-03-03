@@ -95,10 +95,10 @@ export class AuthService {
   ) {
     const token = await this.resetPasswordTokenService.findOne(resetToken);
     const user = await this.userService.findOneByEmail(token.user.email);
-    const userUpdatedt = await this.userService.update(user.id, {
+    const userUpdated = await this.userService.update(user.id, {
       password: await bcrypt.hash(resetPasswordDto.password, 10),
     });
     await this.mailService.sendConfirmResetPasswordMail(user.email);
-    return userUpdatedt;
+    return userUpdated;
   }
 }

@@ -24,7 +24,7 @@ const forgotPassword = async (forgotPasswordCredentials: ForgotPasswordDTO) => {
 };
 
 const resetPassword = async (resetPasswordCredentials: ResetPasswordDTO, resetToken: string) => {
-	return await useFetch.protectedPost(API_RESET_PASSWORD_ROUTE, resetPasswordCredentials, resetToken);
+	return await useFetch.protectedPost(`${API_RESET_PASSWORD_ROUTE}/${resetToken}`, resetPasswordCredentials, resetToken);
 };
 
 export const AuthService = {
