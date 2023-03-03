@@ -24,7 +24,6 @@ export const WebSigninForm: FC = () => {
 
 	const handleSubmit = async () => {
 		const user = await AuthService.signin(credentials);
-		console.log(user);
 		handleRedirect(user);
 	};
 

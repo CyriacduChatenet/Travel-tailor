@@ -15,9 +15,10 @@ export const WebSignupForm: FC = () => {
         setCredentials({ ...credentials, [name]: value });
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        return AuthService.signup(credentials);
+		const user = await AuthService.signup(credentials)
+        return console.log(user);
     };
 
 	return (
