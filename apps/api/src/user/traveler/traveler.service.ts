@@ -56,11 +56,15 @@ export class TravelerService {
     }
   }
 
-  async update(id: string, updateTravelerDto: UpdateTravelerDTO) {
+  async update(id: string, updateTravelerDto: any) {
     try {
-      return await this.travelerRepository.update(id, updateTravelerDto);
+      const traveler = await this.findOne(id);
+      return await this.travelerRepository.update(id, {
+        ...updateTravelerDto,
+        tastes: [...traveler.tastes, ...updateTravelerDto.tastes],
+      });
     } catch (error) {
-      throw new UnauthorizedException(error);
+      throw new NotFoundException(error);
     }
   }
 

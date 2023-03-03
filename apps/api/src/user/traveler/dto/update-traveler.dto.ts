@@ -1,1 +1,3 @@
-export class UpdateTravelerDTO {}
+export class UpdateTravelerDTO {
+  tastes: string[];
+}

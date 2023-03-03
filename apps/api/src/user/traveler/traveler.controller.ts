@@ -38,6 +38,7 @@ export class TravelerController {
   @Patch(':id')
   @UseGuards(JwtAuthGuard)
   @Roles(Role.Admin)
+  @Roles(Role.Traveler)
   async update(
     @Param('id') id: string,
     @Body() updateTravelerDto: UpdateTravelerDTO,
