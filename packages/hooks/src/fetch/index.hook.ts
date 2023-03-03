@@ -23,7 +23,7 @@ const protectedGet = async (api_url: string, token: string) => {
 	return responseJSON;
 };
 
-const post = async (api_url: string, body: Object) => {
+const post = async (api_url: string, body: any) => {
 	const response = await fetch(api_url, {
 		method: 'POST',
 		headers: {
@@ -36,7 +36,7 @@ const post = async (api_url: string, body: Object) => {
 	return responseJSON;
 };
 
-const protectedPost = async (api_url: string, body: Object, token: string) => {
+const protectedPost = async (api_url: string, body: any, token: string) => {
 	const response = await fetch(api_url, {
 		method: 'POST',
 		headers: {
