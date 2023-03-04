@@ -16,6 +16,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/v1/doc', app, document, {
     customSiteTitle: 'Travel tailor API documentation',
+    customfavIcon: 'https://avatars.githubusercontent.com/u/7658037?v=4&s=400',
     customJs: [
       'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js',
       'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js',
