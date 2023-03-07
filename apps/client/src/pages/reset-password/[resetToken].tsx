@@ -1,7 +1,7 @@
-import { NextPage } from 'next';
+import { NextPage } from 'next'
 
-import { Layout } from '@/layout';
-import { WebResetPasswordForm } from '@travel-tailor/ui';
+import { Layout } from '@/layout'
+import { WebResetPasswordForm } from '@travel-tailor/ui'
 
 const ResetPasswordPage: NextPage = () => (
   <Layout>
@@ -9,6 +9,6 @@ const ResetPasswordPage: NextPage = () => (
     <br />
     <WebResetPasswordForm api_url={`${process.env.NEXT_PUBLIC_API_URL}`} />
   </Layout>
-);
+)
 
-export default ResetPasswordPage;
+export default ResetPasswordPage

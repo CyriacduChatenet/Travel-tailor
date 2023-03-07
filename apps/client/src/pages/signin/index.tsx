@@ -1,8 +1,8 @@
-import { NextPage } from 'next';
+import { NextPage } from 'next'
 
-import { Layout } from '@/layout';
-import Link from 'next/link';
-import { WebSigninForm } from '@travel-tailor/ui';
+import { Layout } from '@/layout'
+import Link from 'next/link'
+import { WebSigninForm } from '@travel-tailor/ui'
 
 const SigninPage: NextPage = () => (
   <Layout>
@@ -13,6 +13,6 @@ const SigninPage: NextPage = () => (
     <br />
     <Link href={'/forgot-password'}>Forgot password</Link>
   </Layout>
-);
+)
 
-export default SigninPage;
+export default SigninPage

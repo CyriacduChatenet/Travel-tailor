@@ -1,9 +1,9 @@
-import { WebButton, WebNavbar } from '@travel-tailor/ui';
-import Image from 'next/image';
-import Link from 'next/link';
-import { PropsWithChildren } from 'react';
+import { WebButton, WebNavbar } from '@travel-tailor/ui'
+import Image from 'next/image'
+import Link from 'next/link'
+import { PropsWithChildren } from 'react'
 
-import styles from './layout.module.css';
+import styles from './layout.module.css'
 
 export const Layout = ({ children }: PropsWithChildren) => (
   <>
@@ -24,4 +24,4 @@ export const Layout = ({ children }: PropsWithChildren) => (
     </WebNavbar>
     <main className={styles.main}>{children}</main>
   </>
-);
+)
