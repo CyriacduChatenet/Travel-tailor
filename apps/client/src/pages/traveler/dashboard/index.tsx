@@ -1,13 +1,11 @@
-import { NextPage } from 'next'
+import { NextPage } from 'next';
 
-import { Layout } from '@/layout'
+import { Layout } from '@/layout';
 
-const TravelerDashboard: NextPage = () => {
-  return (
-    <Layout>
-      <h1>Traveler Dashboard</h1>
-    </Layout>
-  )
-}
+const TravelerDashboard: NextPage = () => (
+  <Layout>
+    <h1>Traveler Dashboard</h1>
+  </Layout>
+);
 
-export default TravelerDashboard
+export default TravelerDashboard;
