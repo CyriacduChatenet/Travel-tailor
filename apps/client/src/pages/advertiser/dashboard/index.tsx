@@ -19,7 +19,6 @@ const AdvertiserDashboard: NextPage = () => {
     <h1>Advertiser Dashboard</h1>
     <br />
       <h2>Adverts</h2>
-      {data.adverts.map((advert: any) => <div>Travel : {advert.name}</div>)}
   </Layout>
 );
 };

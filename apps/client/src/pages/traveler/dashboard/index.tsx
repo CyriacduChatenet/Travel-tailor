@@ -19,7 +19,6 @@ const TravelerDashboard: NextPage = () => {
       <h1>Traveler Dashboard</h1>
       <br />
       <h2>Travels</h2>
-      {data.travels.map((travel: any) => <div>Travel : {travel.name}</div>)}
     </Layout>
   );
 }
