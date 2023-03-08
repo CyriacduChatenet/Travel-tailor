@@ -20,7 +20,7 @@ const getUserByToken = async (api_url: string, email: string) => {
 
 const getUserInfo = async (api_url: string) => {
   const token = TokenService.getAccessToken();
-  const decodedToken = jwtDecode(String(token));
+  const decodedToken = jwtDecode(String(token)) as { email: string };
   const user = await getUserByToken(api_url, decodedToken.email);
 
   if(user.roles === ROLES.TRAVELER) {
