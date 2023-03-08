@@ -5,7 +5,7 @@ import { UserService } from '@travel-tailor/services';
 import { Layout } from '@/layout';
 
 const TravelerDashboard: NextPage = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState<any>({});
   const getData = async () => {
     const response = await UserService.getUserInfo(`${process.env.NEXT_PUBLIC_API_URL}`);
     setData(response);
@@ -19,7 +19,7 @@ const TravelerDashboard: NextPage = () => {
       <h1>Traveler Dashboard</h1>
       <br />
       <h2>Travels</h2>
-      {data.travels.map((travel) => <div>Travel : {travel.name}</div>)}
+      {data.travels.map((travel: any) => <div>Travel : {travel.name}</div>)}
     </Layout>
   );
 }
