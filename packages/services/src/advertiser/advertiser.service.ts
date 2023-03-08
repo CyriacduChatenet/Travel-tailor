@@ -9,7 +9,7 @@ const createAdvertiser = (
 }
 
 const getAdvertiserInfo = async (api_url: string, advertiserId: string) => {
-  return await useFetch.get(`${api_url}/traveler/${advertiserId}`);
+  return await useFetch.get(`${api_url}/advertiser/${advertiserId}`);
 };
 
 export const AdvertiserService = {

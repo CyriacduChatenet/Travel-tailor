@@ -4,6 +4,7 @@ import { useFetch } from '@travel-tailor/hooks'
 
 import { TokenService } from '../tokens/token.service';
 import { TravelerService } from '../traveler/traveler.service';
+import { AdvertiserService } from '../advertiser/advertiser.service';
 
 const updateUser = (api_url: string, body: any) => {
   return useFetch.protectedPatch(
@@ -25,6 +26,11 @@ const getUserInfo = async (api_url: string) => {
   if(user.roles === ROLES.TRAVELER) {
     const traveler = await TravelerService.getTravelerInfo(api_url, user.traveler.id);
     return { ...user, ...traveler }
+  }
+
+  if(user.roles === ROLES.ADVERTISER) {
+    const advertiser = await AdvertiserService.getAdvertiserInfo(api_url, user.advertiser.id);
+    return { ...user, ...advertiser }
   }
 };
 
