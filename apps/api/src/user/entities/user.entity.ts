@@ -41,9 +41,7 @@ export class User extends Timestamp {
   @JoinColumn()
   traveler: Traveler;
 
-  @OneToOne(() => ResetPasswordToken, {
-    cascade: true,
-  })
+  @OneToOne(() => ResetPasswordToken)
   @JoinColumn()
   resetPasswordToken: ResetPasswordToken;
 }
