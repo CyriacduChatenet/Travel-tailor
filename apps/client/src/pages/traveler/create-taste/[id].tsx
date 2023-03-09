@@ -1,12 +1,11 @@
-import { useProtectedRoute } from '@travel-tailor/hooks';
-import { TokenService } from '@travel-tailor/services';
-import { WebCreateTasteForm } from '@travel-tailor/ui';
-import { NextPage } from 'next';
+import { useProtectedRoute } from '@travel-tailor/hooks'
+import { WebCreateTasteForm } from '@travel-tailor/ui'
+import { NextPage } from 'next'
+
+import { authUtil } from '@/utils/auth.utils'
 
 const CreateTastePage: NextPage = () => {
-  useProtectedRoute(
-    typeof window !== 'undefined' && TokenService.getAccessToken() ? true : false
-  );
+  useProtectedRoute(authUtil)
 
   return (
     <div>

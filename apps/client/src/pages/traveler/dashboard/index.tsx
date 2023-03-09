@@ -1,9 +1,10 @@
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import { TokenService, UserService } from '@travel-tailor/services';
+import { UserService } from '@travel-tailor/services';
 import { useProtectedRoute } from '@travel-tailor/hooks';
 
 import { Layout } from '@/layout'
+import { authUtil } from '@/utils/auth.utils';
 
 const TravelerDashboard: NextPage = () => {
   const [data, setData] = useState<any>({})
@@ -14,11 +15,7 @@ const TravelerDashboard: NextPage = () => {
     setData(response)
   }
 
-  useProtectedRoute(
-    typeof window !== 'undefined' && TokenService.getAccessToken()
-      ? true
-      : false
-  );
+  useProtectedRoute(authUtil);
 
   useEffect(() => {
     getData()

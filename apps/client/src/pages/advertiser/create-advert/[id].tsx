@@ -1,15 +1,13 @@
 import { NextPage } from 'next'
 import { WebCreateAdvertiserForm } from '@travel-tailor/ui'
 import { useProtectedRoute } from '@travel-tailor/hooks'
-import { TokenService } from '@travel-tailor/services'
 
 import { Layout } from '@/layout'
+import { authUtil } from '@/utils/auth.utils'
 
 const CreateAdvert: NextPage = () => {
-  useProtectedRoute(
-    typeof window !== 'undefined' && TokenService.getAccessToken() ? true : false
-  );
-  
+  useProtectedRoute(authUtil)
+
   return (
     <Layout>
       <h1>Create advert</h1>
