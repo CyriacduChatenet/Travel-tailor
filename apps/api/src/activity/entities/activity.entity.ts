@@ -37,16 +37,16 @@ export class Activity extends Timestamp {
   @JoinColumn()
   activityImage: ActivityImage;
 
-  @ManyToMany(() => ActivityTag, activityTag => activityTag.activities)
+  @ManyToMany(() => ActivityTag, activityTag => activityTag.activities, { cascade: true })
   @JoinTable()
   activityTags: ActivityTag[];
 
-  @OneToMany(() => Comment, comment => comment.activity)
+  @OneToMany(() => Comment, comment => comment.activity, { cascade: true })
   comments: Comment[];
 
-  @ManyToMany(() => Travel, travel => travel.activities)
+  @ManyToMany(() => Travel, travel => travel.activities, { cascade: true })
   travels: Travel[];
 
-  @ManyToOne(() => Advertiser, (advertiser) => advertiser.activities)
+  @ManyToOne(() => Advertiser, (advertiser) => advertiser.activities, { cascade: true })
   advertiser: Advertiser;
 }
