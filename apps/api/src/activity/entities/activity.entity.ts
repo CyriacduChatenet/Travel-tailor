@@ -29,24 +29,24 @@ export class Activity extends Timestamp {
   @Column()
   mark: number;
 
-  @OneToOne(() => ActivityDetail, activityDetail => activityDetail.activity, { cascade: true })
+  @OneToOne(() => ActivityImage, (image) => image.activity, {
+    cascade: true,
+  })
   @JoinColumn()
-  activityDetail: ActivityDetail;
+  image: ActivityImage;
 
-  @OneToOne(() => ActivityImage, activityImage => activityImage.activity, { cascade: true })
+  @OneToOne(() => ActivityDetail, (detail) => detail.activity, {
+    cascade: true,
+  })
   @JoinColumn()
-  activityImage: ActivityImage;
+  detail: ActivityDetail;
 
-  @ManyToMany(() => ActivityTag, activityTag => activityTag.activities, { cascade: true })
-  @JoinTable()
-  activityTags: ActivityTag[];
-
-  @OneToMany(() => Comment, comment => comment.activity, { cascade: true })
+  @OneToMany(() => Comment, comment => comment.activity)
   comments: Comment[];
 
-  @ManyToMany(() => Travel, travel => travel.activities, { cascade: true })
+  @ManyToMany(() => Travel, travel => travel.activities)
   travels: Travel[];
 
-  @ManyToOne(() => Advertiser, (advertiser) => advertiser.activities, { cascade: true })
+  @ManyToOne(() => Advertiser, (advertiser) => advertiser.activities)
   advertiser: Advertiser;
 }
