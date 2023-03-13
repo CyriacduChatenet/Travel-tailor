@@ -7,7 +7,7 @@ const findAllTravelers = async (api_url: string) => {
   return await useFetch.get(`${api_url}/traveler`);
 };
 
-const findTravelerById = async (api_url: string, travelerId: string) => {
+const findTravelerById = async (api_url: string | undefined, travelerId: string) => {
   return await useFetch.get(`${api_url}/traveler/${travelerId}`);
 };
 
