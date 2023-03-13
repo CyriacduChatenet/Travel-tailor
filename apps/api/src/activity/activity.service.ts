@@ -80,6 +80,7 @@ export class ActivityService {
         activity.comments = updateActivityDto?.comments;
         activity.travels = updateActivityDto?.travels;
         activity.advertiser = updateActivityDto?.advertiser;
+        activity.tags = updateActivityDto?.tags;
 
         return this.activityRepository.save(activity);
     } catch (error) {
