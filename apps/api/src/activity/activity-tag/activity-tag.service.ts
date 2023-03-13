@@ -32,9 +32,9 @@ export class ActivityTagService {
     try {
       return await this.activityTagRepository
         .createQueryBuilder('activityTag')
-        .leftJoinAndSelect('activityTag.activities', 'activities')
-        .orderBy('activityTag.name', 'ASC')
-        .getMany();
+        .leftJoinAndSelect('tag.activities', 'activity')
+        .orderBy('tag.name', 'ASC')
+        .getMany();  
     } catch (error) {
       throw new NotFoundException(error);
     }
@@ -44,7 +44,7 @@ export class ActivityTagService {
     try {
       return this.activityTagRepository
         .createQueryBuilder('activityTag')
-        .leftJoinAndSelect('activityTag.activities', 'activities')
+        .leftJoinAndSelect('tag.activities', 'activity')
         .where('activityTag.name = :name', { name })
         .getOne();
     } catch (error) {
